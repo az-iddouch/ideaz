@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 10 (10px that we want) / 16 (16px the default browser size)
+  we did that so when the user change the font size in the browser
+  our website change accordinely */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  background-color: $color-grey;
+}

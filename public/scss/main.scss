@@ -1,5 +1,4 @@
-@import './variables.scss';
-
-h1 {
-  color: $primary-color;
-}
+@import 'partials/variables';
+@import 'partials/utilities';
+@import 'partials/base';
+@import 'partials/layout';

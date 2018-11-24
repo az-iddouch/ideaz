@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: { main: './public/js/app.js' },
@@ -23,6 +24,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin('public/dist', {}),
     new MiniCssExtractPlugin({
       filename: 'style.css'
     })

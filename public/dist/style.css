@@ -1,3 +1,85 @@
-h1 {
-  color: lightcoral; }
+.wrapper {
+  padding-left: 3.1rem;
+  padding-right: 3.1rem; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
+
+html {
+  /* 10 (10px that we want) / 16 (16px the default browser size)
+  we did that so when the user change the font size in the browser
+  our website change accordinely */
+  font-size: 62.5%; }
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  background-color: #f8f8f8; }
+
+.container {
+  max-width: 120rem;
+  margin: 8rem auto;
+  min-height: 50rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 6px 8px 40px -7px rgba(0, 0, 0, 0.4);
+          box-shadow: 6px 8px 40px -7px rgba(0, 0, 0, 0.4); }
+  .container .navbar {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 17%;
+            flex: 0 0 17%;
+    background-color: #8981d8;
+    z-index: 100; }
+    .container .navbar .logo-container {
+      background-color: #6a61c0;
+      width: 100%;
+      height: 6.7rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      .container .navbar .logo-container .logo {
+        font-size: 3.7rem;
+        color: #8981d8; }
+  .container .right-section {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    background-color: #f8f8f8; }
+    .container .right-section .topbar {
+      background-color: #fff;
+      padding: 1.4rem 0;
+      -webkit-box-shadow: 0px 5px 20px -10px rgba(0, 0, 0, 0.35);
+              box-shadow: 0px 5px 20px -10px rgba(0, 0, 0, 0.35); }
+      .container .right-section .topbar .search-form {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        .container .right-section .topbar .search-form__icon {
+          width: 1.9rem;
+          height: auto;
+          color: #0c0c0c; }
+        .container .right-section .topbar .search-form__input {
+          border: none;
+          outline: none;
+          padding: 1rem 1rem;
+          font-family: 'Nunito', sans-serif;
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: #0c0c0c; }
 
