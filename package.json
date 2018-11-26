@@ -13,8 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
-    "feather-icons": "^4.9.0"
+    "express-handlebars": "^3.0.0"
   },
   "browserslist": "last 3 versions",
   "devDependencies": {
