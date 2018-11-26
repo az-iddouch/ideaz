@@ -1,7 +1,7 @@
 .container {
   max-width: 120rem;
   margin: 8rem auto;
-  min-height: 50rem;
+  min-height: 65rem;
   display: flex;
   box-shadow: 6px 8px 40px -7px rgba(0, 0, 0, 0.4);
   .navbar {
@@ -22,7 +22,7 @@
     }
     .navigation {
       z-index: 99;
-      margin-top: 2rem;
+      margin-top: 2.2rem;
       &-list {
         width: 100%;
         list-style: none;

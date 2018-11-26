@@ -34,7 +34,7 @@ body {
 .container {
   max-width: 120rem;
   margin: 8rem auto;
-  min-height: 50rem;
+  min-height: 65rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,7 +64,7 @@ body {
         color: #8981d8; }
     .container .navbar .navigation {
       z-index: 99;
-      margin-top: 2rem; }
+      margin-top: 2.2rem; }
       .container .navbar .navigation-list {
         width: 100%;
         list-style: none; }
