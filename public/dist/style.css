@@ -62,16 +62,60 @@ body {
       .container .navbar .logo-container .logo {
         font-size: 3.7rem;
         color: #8981d8; }
-    .container .navbar .navigation-list {
-      width: 100%;
-      list-style: none; }
-      .container .navbar .navigation-list__link {
-        display: inline-block;
-        text-decoration: none;
-        font-size: 1.5rem;
-        color: #fff;
+    .container .navbar .navigation {
+      z-index: 99;
+      margin-top: 2rem; }
+      .container .navbar .navigation-list {
         width: 100%;
-        padding: 1rem 2rem; }
+        list-style: none; }
+        .container .navbar .navigation-list__item {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center; }
+        .container .navbar .navigation-list__icon {
+          width: 2.3rem;
+          margin-right: 1.7rem; }
+        .container .navbar .navigation-list__link:link, .container .navbar .navigation-list__link:visited {
+          display: inline-block;
+          text-decoration: none;
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: #fff;
+          width: 100%;
+          padding: 1.5rem 2.8rem;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          position: relative; }
+          .container .navbar .navigation-list__link:link::after, .container .navbar .navigation-list__link:visited::after {
+            content: '';
+            top: -4.9rem;
+            right: 0;
+            width: 15rem;
+            height: 15rem;
+            border-radius: 100rem;
+            position: absolute;
+            background-color: #8981d8;
+            z-index: -1; }
+        .container .navbar .navigation-list__link:hover::after {
+          content: '';
+          top: -4.9rem;
+          right: -0.5rem;
+          width: 15rem;
+          height: 15rem;
+          border-radius: 100rem;
+          position: absolute;
+          background-color: #8981d8;
+          z-index: -1;
+          -webkit-transition: all 0.3s ease-out;
+          -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out; }
   .container .right-section {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -100,4 +144,13 @@ body {
           font-size: 1.4rem;
           font-weight: 600;
           color: #0c0c0c; }
+
+.hover-effect {
+  display: inline-block;
+  width: 0.5rem;
+  height: 4.5rem;
+  background-color: transparent;
+  -webkit-transition: background-color 0.3s ease-out;
+  -o-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out; }
 

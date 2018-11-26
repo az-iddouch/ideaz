@@ -19,14 +19,25 @@
       <nav class="navigation">
         <ul class="navigation-list">
           <li class="navigation-list__item">
-            <a href="#" class="navigation-list__link">Home</a>
+            <div class="hover-effect"></div>
+            <a href="#" class="navigation-list__link">
+              <svg class="navigation-list__icon feather ">
+                <use xlink:href="/icons/feather-sprite.svg#home" />
+              </svg>
+              Home
+            </a>
           </li>
           <li class="navigation-list__item">
-            <a href="#" class="navigation-list__link">About</a>
+            <div class="hover-effect"></div>
+            <a href="#" class="navigation-list__link">
+              <svg class="navigation-list__icon feather ">
+                <use xlink:href="/icons/feather-sprite.svg#briefcase" />
+              </svg>
+              About
+            </a>
           </li>
         </ul>
       </nav>
-      Navbar
     </div>
     <div class="right-section">
       <div class="topbar">
@@ -35,7 +46,8 @@
             <label for="search" class="search-form__label">
               <svg class="search-form__icon feather ">
                 <use xlink:href="/icons/feather-sprite.svg#search" />
-              </svg></label>
+              </svg>
+            </label>
             <input type="text" class="search-form__input" placeholder="Search" id="search">
           </form>
         </div>
