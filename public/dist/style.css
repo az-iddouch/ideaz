@@ -154,3 +154,28 @@ body {
   -o-transition: background-color 0.3s ease-out;
   transition: background-color 0.3s ease-out; }
 
+.home {
+  background-image: url("/images/home-bg.png");
+  height: 100vh;
+  width: 100%; }
+  .home__content-box {
+    padding-top: 8rem; }
+  .home__header {
+    font-weight: 300;
+    font-size: 4.2rem;
+    color: #0c0c0c;
+    margin-bottom: 1.5rem; }
+  .home__sub-header {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #0c0c0c;
+    margin-bottom: 4rem; }
+  .home__cta {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.7rem;
+    color: #fff;
+    padding: 1rem 4rem;
+    background-color: #8981d8;
+    border-radius: 0.6rem; }
+

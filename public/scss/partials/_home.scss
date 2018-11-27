@@ -1,0 +1,29 @@
+.home {
+  background-image: url('/images/home-bg.png');
+  height: 100vh;
+  width: 100%;
+  &__content-box {
+    padding-top: 8rem;
+  }
+  &__header {
+    font-weight: 300;
+    font-size: 4.2rem;
+    color: $color-text-dark;
+    margin-bottom: 1.5rem;
+  }
+  &__sub-header {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: $color-text-dark;
+    margin-bottom: 4rem;
+  }
+  &__cta {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.7rem;
+    color: $color-white;
+    padding: 1rem 4rem;
+    background-color: $color-primary;
+    border-radius: 0.6rem;
+  }
+}
