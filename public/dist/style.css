@@ -179,3 +179,19 @@ body {
     background-color: #8981d8;
     border-radius: 0.6rem; }
 
+.about {
+  background-image: url("/images/about.png");
+  height: 100vh;
+  width: 100%; }
+  .about__header {
+    padding-top: 8rem;
+    font-weight: 300;
+    font-size: 4.2rem;
+    color: #0c0c0c;
+    margin-bottom: 2rem; }
+  .about__text {
+    width: 62%;
+    font-weight: 400;
+    font-size: 1.6rem;
+    text-align: justify; }
+
