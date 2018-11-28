@@ -2,8 +2,22 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const helpers = require('./helpers');
+const mongoose = require('mongoose');
 
 const app = express();
+// connect to our mongoDB
+mongoose
+  .connect(
+    'mongodb://localhost/ideaz-dev',
+    {
+      useNewUrlParser: true
+    }
+  )
+  .then(() => console.log('✔✔✔✔ Database Connected ... 💪💪💪'))
+  .catch(err => console.log(err));
+
+// Load models
+require('./models/Idea');
 
 const port = 5000;
 app.listen(port, () => {
