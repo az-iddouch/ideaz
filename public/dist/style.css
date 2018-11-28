@@ -195,3 +195,39 @@ body {
     font-size: 1.6rem;
     text-align: justify; }
 
+.ideas-add__header {
+  font-weight: 300;
+  font-size: 4.2rem;
+  color: #0c0c0c;
+  padding-top: 4rem; }
+
+.ideas-add__form {
+  width: 65%;
+  margin: 3rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.ideas-add__label {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 1rem; }
+
+.ideas-add__input {
+  font-size: 1.6rem;
+  font-family: 'Nunito', sans-serif;
+  color: #0c0c0c;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.6rem;
+  padding: 1rem; }
+  .ideas-add__input--body {
+    font-size: 16px; }
+  .ideas-add__input--title {
+    height: 4rem;
+    margin-bottom: 1.8rem; }
+

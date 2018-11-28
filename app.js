@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const helpers = require('./helpers');
 const mongoose = require('mongoose');
+const ideasController = require('./controllers/ideasController');
 
 const app = express();
 // connect to our mongoDB
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// ROUTES
 // index route
 app.get('/', (req, res) => {
   res.render('index');
@@ -43,6 +45,9 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about');
 });
+
+// add idea
+app.get('/ideas/add', ideasController.addIdea);
 
 //static files location
 app.use(express.static(path.join(__dirname, 'public')));
