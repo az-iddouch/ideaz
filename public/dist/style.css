@@ -11,6 +11,21 @@
   stroke-linejoin: round;
   fill: none; }
 
+.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.3rem 2rem;
+  background-color: #ff6262;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  border-radius: 0.4rem; }
+  .error__dismiss {
+    margin-left: auto;
+    cursor: pointer; }
+
 *,
 *::after,
 *::before {
@@ -230,4 +245,15 @@ body {
   .ideas-add__input--title {
     height: 4rem;
     margin-bottom: 1.8rem; }
+
+.ideas-add__form-submit {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding: 1.3rem 3.5rem;
+  margin-top: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #8981d8;
+  color: #fff;
+  cursor: pointer; }
 

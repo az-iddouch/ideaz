@@ -32,4 +32,14 @@
       margin-bottom: 1.8rem;
     }
   }
+  &__form-submit {
+    align-self: flex-start;
+    padding: 1.3rem 3.5rem;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: $color-primary;
+    color: $color-white;
+    cursor: pointer;
+  }
 }

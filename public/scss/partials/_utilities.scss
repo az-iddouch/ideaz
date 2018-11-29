@@ -11,3 +11,18 @@
   stroke-linejoin: round;
   fill: none;
 }
+
+.error {
+  display: flex;
+  padding: 1.3rem 2rem;
+  background-color: rgb(255, 98, 98);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: $color-white;
+  border-radius: 0.4rem;
+  &__dismiss {
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
