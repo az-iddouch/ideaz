@@ -21,7 +21,9 @@ IdeaSchema.statics.getIdeas = function() {
     {
       $project: {
         title: 1,
-        body: 1,
+        body: {
+          $substr: ['$body', 0, 100]
+        },
         date: {
           $dateToString: {
             date: '$date',
