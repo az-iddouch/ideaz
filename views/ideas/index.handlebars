@@ -1,0 +1,14 @@
+<div class="ideas">
+
+  <div class="ideas__container">
+    {{#each ideas}}
+    <div class="ideas__idea">
+      <div class="ideas__idea-date">{{date}}</div>
+      <h4 class="ideas__idea-title">{{title}}</h4>
+      <div class="ideas__idea-body">{{body}}</div>
+    </div>
+    {{else}}
+    <p>No ideas to show !!</p>
+    {{/each}}
+  </div>
+</div>

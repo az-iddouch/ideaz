@@ -16,4 +16,22 @@ const IdeaSchema = new Schema({
   }
 });
 
+IdeaSchema.statics.getIdeas = function() {
+  return this.aggregate([
+    {
+      $project: {
+        title: 1,
+        body: 1,
+        date: {
+          $dateToString: {
+            date: '$date',
+            format: '%d-%m-%Y'
+          }
+        }
+      }
+    },
+    { $sort: { date: -1 } }
+  ]);
+};
+
 module.exports = mongoose.model('Idea', IdeaSchema);

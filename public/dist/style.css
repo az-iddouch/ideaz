@@ -257,3 +257,29 @@ body {
   color: #fff;
   cursor: pointer; }
 
+.ideas {
+  padding-top: 4rem; }
+  .ideas__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem; }
+  .ideas__idea {
+    background-color: #fff;
+    padding: 2rem;
+    height: 19rem;
+    -webkit-box-shadow: 0px 1px 18px -6px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 1px 18px -6px rgba(0, 0, 0, 0.3); }
+  .ideas__idea-date {
+    color: #616161;
+    font-weight: 400;
+    font-size: 1.1rem; }
+  .ideas__idea-title {
+    color: #0c0c0c;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2; }
+  .ideas__idea-body {
+    color: #0c0c0c;
+    font-weight: 400;
+    font-size: 1.4rem; }
+

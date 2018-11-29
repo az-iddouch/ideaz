@@ -25,3 +25,12 @@ exports.submitIdea = async (req, res) => {
     }
   }
 };
+
+exports.showIdeas = async (req, res) => {
+  try {
+    const ideas = await Idea.getIdeas();
+    res.render('ideas/index', { ideas });
+  } catch (err) {
+    console.log(err);
+  }
+};

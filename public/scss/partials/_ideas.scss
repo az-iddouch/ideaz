@@ -1,0 +1,30 @@
+.ideas {
+  padding-top: 4rem;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+  }
+  &__idea {
+    background-color: $color-white;
+    padding: 2rem;
+    height: 19rem;
+    box-shadow: 0px 1px 18px -6px rgba(0, 0, 0, 0.3);
+  }
+  &__idea-date {
+    color: $color-text-light;
+    font-weight: 400;
+    font-size: 1.1rem;
+  }
+  &__idea-title {
+    color: $color-text-dark;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2;
+  }
+  &__idea-body {
+    color: $color-text-dark;
+    font-weight: 400;
+    font-size: 1.4rem;
+  }
+}

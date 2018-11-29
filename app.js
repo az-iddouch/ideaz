@@ -57,6 +57,9 @@ app.get('/ideas/add', ideasController.addIdea);
 
 app.post('/ideas', ideasController.submitIdea);
 
+// show ideas
+app.get('/ideas', ideasController.showIdeas);
+
 //static files location
 app.use(express.static(path.join(__dirname, 'public')));
 
