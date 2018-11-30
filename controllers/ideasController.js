@@ -34,3 +34,14 @@ exports.showIdeas = async (req, res) => {
     console.log(err);
   }
 };
+
+exports.editIdea = async (req, res) => {
+  try {
+    const idea = await Idea.findOne({
+      _id: req.params.id
+    });
+    res.render('ideas/edit', { idea });
+  } catch (err) {
+    console.log(err);
+  }
+};

@@ -54,8 +54,10 @@ app.get('/about', (req, res) => {
 
 // add idea
 app.get('/ideas/add', ideasController.addIdea);
-
 app.post('/ideas', ideasController.submitIdea);
+
+// update
+app.get('/edit/:id', ideasController.editIdea);
 
 // show ideas
 app.get('/ideas', ideasController.showIdeas);
