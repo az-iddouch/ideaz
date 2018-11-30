@@ -7,8 +7,7 @@ const bodyParser = require('body-parser');
 
 // Load models
 require('./models/Idea');
-
-const ideasController = require('./controllers/ideasController');
+const routes = require('./routes/index');
 
 const app = express();
 // connect to our mongoDB
@@ -21,8 +20,6 @@ mongoose
   )
   .then(() => console.log('✔✔✔✔ Database Connected ... 💪💪💪'))
   .catch(err => console.log(err));
-
-// const Idea = mongoose.model('Idea');
 
 // handlebars middleware
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -41,29 +38,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-// ROUTES
-// index route
-app.get('/', (req, res) => {
-  res.render('index');
-});
-
-// about
-app.get('/about', (req, res) => {
-  res.render('about');
-});
-
-// add idea
-app.get('/ideas/add', ideasController.addIdea);
-app.post('/ideas', ideasController.submitIdea);
-
-// update
-app.get('/edit/:id', ideasController.editIdea);
-
-// show ideas
-app.get('/ideas', ideasController.showIdeas);
-
 //static files location
 app.use(express.static(path.join(__dirname, 'public')));
+
+// After allllll that above middleware, we finally handle our own routes!
+app.use('/', routes);
 
 const port = 5000;
 app.listen(port, () => {

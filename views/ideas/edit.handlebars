@@ -1,6 +1,6 @@
 <div class="ideas-edit">
   <h2 class="ideas-add__header">Edit Idea</h2>
-  <form action="/ideas" method="POST" class="ideas-add__form">
+  <form action="/update/{{idea._id}}" method="POST" class="ideas-add__form">
     {{#each errors}}
     <div class="error">{{text}}<span class="error__dismiss">&times;</span></div>
     {{/each}}

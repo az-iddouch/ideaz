@@ -24,7 +24,8 @@ IdeaSchema.statics.getIdeas = function() {
         body: {
           $substr: ['$body', 0, 100]
         },
-        date: {
+        date: 1,
+        dateToDisplay: {
           $dateToString: {
             date: '$date',
             format: '%d-%m-%Y'
