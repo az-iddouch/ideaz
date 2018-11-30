@@ -21,7 +21,7 @@ exports.validateAdd = (req, res, next) => {
     next();
   }
 };
-exports.validateUpdate = (req, res, next) => {
+exports.validateUpdate = async (req, res, next) => {
   let errors = [];
 
   if (!req.body.title) {
@@ -31,7 +31,8 @@ exports.validateUpdate = (req, res, next) => {
     errors.push({ text: 'please add a body !' });
   }
   if (errors.length > 0) {
-    res.render('ideas/edit', { errors, title: req.body.title, body: req.body.body });
+    const idea = await Idea.findOne({ _id: req.params.id });
+    res.render('ideas/edit', { errors, idea });
     return;
   } else {
     next();
