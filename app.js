@@ -1,6 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require('connect-flash');
+const session = require('express-session');
 const helpers = require('./helpers');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -25,12 +27,6 @@ mongoose
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-// pass variables to our templates + all requests
-app.use((req, res, next) => {
-  res.locals.h = helpers;
-  next();
-});
-
 // Body parser meddleware
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -40,6 +36,25 @@ app.use(bodyParser.json());
 
 //static files location
 app.use(express.static(path.join(__dirname, 'public')));
+
+// express session midleware
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+// for flashing users
+app.use(flash());
+
+// pass variables to our templates + all requests
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  res.locals.flashes = req.flash();
+  next();
+});
 
 // After allllll that above middleware, we finally handle our own routes!
 app.use('/', routes);

@@ -42,6 +42,7 @@ exports.validateUpdate = async (req, res, next) => {
 exports.submitIdea = async (req, res) => {
   try {
     await new Idea(req.body).save();
+    req.flash('success', 'your idea has been successfully created.');
     res.redirect('/ideas');
   } catch (err) {
     console.log(err);
@@ -83,7 +84,8 @@ exports.updateIdea = async (req, res) => {
 exports.deleteIdea = async (req, res) => {
   try {
     const idea = await Idea.findOneAndRemove({ _id: req.params.id });
-    res.render('ideas/index');
+    req.flash('success', 'your ideas is successfuly deleted .');
+    res.redirect('/ideas');
   } catch (err) {
     console.log(err);
   }
