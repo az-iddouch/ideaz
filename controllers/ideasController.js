@@ -79,3 +79,12 @@ exports.updateIdea = async (req, res) => {
     console.log(err);
   }
 };
+
+exports.deleteIdea = async (req, res) => {
+  try {
+    const idea = await Idea.findOneAndRemove({ _id: req.params.id });
+    res.render('ideas/index');
+  } catch (err) {
+    console.log(err);
+  }
+};

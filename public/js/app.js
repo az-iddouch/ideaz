@@ -21,3 +21,12 @@ dismissErrors.forEach(x =>
     e.target.parentElement.remove();
   })
 );
+
+// delete idea
+const deleteIcons = document.querySelectorAll('.ideas__idea-delete-icon');
+deleteIcons.forEach(icon =>
+  icon.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector('#delete-idea-form').submit();
+  })
+);

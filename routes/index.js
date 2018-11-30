@@ -21,6 +21,9 @@ router.post('/ideas', ideasController.validateAdd, ideasController.submitIdea);
 router.get('/edit/:id', ideasController.editIdea);
 router.post('/update/:id', ideasController.validateUpdate, ideasController.updateIdea);
 
+// delete idea
+router.post('/delete/:id', ideasController.deleteIdea);
+
 // show ideas
 router.get('/ideas', ideasController.showIdeas);
 

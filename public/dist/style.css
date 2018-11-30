@@ -290,11 +290,26 @@ body {
     bottom: 0;
     padding-right: 2rem;
     padding-bottom: 1rem; }
+  .ideas__idea-delete-link:link, .ideas__idea-delete-link:visited {
+    position: absolute;
+    right: 3rem;
+    bottom: 0;
+    padding-right: 2rem;
+    padding-bottom: 1rem; }
   .ideas__idea-edit-link:hover .ideas__idea-edit-icon,
   .ideas__idea-edit-link:active .ideas__idea-edit-icon {
     color: #6a61c0; }
+  .ideas__idea-delete-link:hover .ideas__idea-delete-icon,
+  .ideas__idea-delete-link:active .ideas__idea-delete-icon {
+    color: #fc4c4c; }
   .ideas__idea-edit-icon {
     color: #8981d8;
+    width: 1.7rem;
+    -webkit-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s; }
+  .ideas__idea-delete-icon {
+    color: #ff6262;
     width: 1.7rem;
     -webkit-transition: color 0.3s;
     -o-transition: color 0.3s;

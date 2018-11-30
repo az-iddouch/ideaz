@@ -37,12 +37,29 @@
     padding-right: 2rem;
     padding-bottom: 1rem;
   }
+  &__idea-delete-link:link,
+  &__idea-delete-link:visited {
+    position: absolute;
+    right: 3rem;
+    bottom: 0;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+  }
   &__idea-edit-link:hover &__idea-edit-icon,
   &__idea-edit-link:active &__idea-edit-icon {
     color: $color-primary-dark;
   }
+  &__idea-delete-link:hover &__idea-delete-icon,
+  &__idea-delete-link:active &__idea-delete-icon {
+    color: $color-red-dark;
+  }
   &__idea-edit-icon {
     color: $color-primary;
+    width: 1.7rem;
+    transition: color 0.3s;
+  }
+  &__idea-delete-icon {
+    color: $color-red;
     width: 1.7rem;
     transition: color 0.3s;
   }
