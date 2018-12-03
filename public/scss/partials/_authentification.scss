@@ -1,0 +1,58 @@
+.login {
+  &__wrapper {
+    background-color: $color-white;
+    width: 90%;
+    display: flex;
+    margin: 5rem auto;
+  }
+  &__left {
+    flex: 0 0 45%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem;
+  }
+  &__header {
+    font-size: 6.5rem;
+    font-weight: 300;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $color-text-light;
+    margin-bottom: 0.75rem;
+  }
+  &__input {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0.75rem 1.5rem;
+    color: $color-text-dark;
+    outline: none;
+    border: 1px solid rgba($color: #000000, $alpha: 0.2);
+    border-radius: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  &__submit {
+    background-color: $color-primary;
+    border: none;
+    border-radius: 0.6rem;
+    padding: 1.3rem;
+    color: $color-white;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+  }
+  &__right {
+    flex: 1;
+    vertical-align: middle;
+  }
+  &__image {
+    width: 100%;
+  }
+}

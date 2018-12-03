@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const ideasController = require('../controllers/ideasController');
+const usersController = require('../controllers/usersController');
 
 // ROUTES
 // index route
@@ -26,5 +27,10 @@ router.post('/delete/:id', ideasController.deleteIdea);
 
 // show ideas
 router.get('/ideas', ideasController.showIdeas);
+
+// User Routes
+router.get('/users/login', usersController.showLogin);
+
+router.get('/users/register', usersController.showRegister);
 
 module.exports = router;
