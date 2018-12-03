@@ -1,14 +1,16 @@
 <div class="ideas-edit">
   <h2 class="ideas-add__header">Edit Idea</h2>
   <form action="/update/{{idea._id}}" method="POST" class="ideas-add__form">
-    {{#each errors}}
-    <div class="error">{{text}}<span class="error__dismiss">&times;</span></div>
-    {{/each}}
-
-    <label for="title" class="ideas-add__label">Title</label>
+    <label for="title" class="ideas-add__label ideas-add__label--title">Title</label>
     <input type="text" id="title" name="title" value="{{idea.title}}" class="ideas-add__input ideas-add__input--title">
-    <label for="body" class="ideas-add__label">Body</label>
+    {{#if errors}}
+    <div class="form-error">{{errors.title}}</div>
+    {{/if}}
+    <label for="body" class="ideas-add__label ideas-add__label--body">Body</label>
     <textarea name="body" id="body" class="ideas-add__input ideas-add__input--body" cols="30" rows="8">{{idea.body}}</textarea>
+    {{#if errors}}
+    <div class="form-error">{{errors.body}}</div>
+    {{/if}}
     <input type="submit" class="ideas-add__form-submit" value="Update">
   </form>
 </div>

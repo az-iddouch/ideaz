@@ -38,6 +38,12 @@
     margin-left: auto;
     cursor: pointer; }
 
+.form-error {
+  color: #ff6262;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-top: 1rem; }
+
 *,
 *::after,
 *::before {
@@ -243,6 +249,8 @@ body {
   font-size: 3rem;
   font-weight: 300;
   margin-bottom: 1rem; }
+  .ideas-add__label--body {
+    margin-top: 2rem; }
 
 .ideas-add__input {
   font-size: 1.6rem;
@@ -255,8 +263,7 @@ body {
   .ideas-add__input--body {
     font-size: 16px; }
   .ideas-add__input--title {
-    height: 4rem;
-    margin-bottom: 1.8rem; }
+    height: 4rem; }
 
 .ideas-add__form-submit {
   -ms-flex-item-align: start;

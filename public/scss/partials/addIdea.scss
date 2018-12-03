@@ -15,6 +15,9 @@
     font-size: 3rem;
     font-weight: 300;
     margin-bottom: 1rem;
+    &--body {
+      margin-top: 2rem;
+    }
   }
   &__input {
     font-size: 1.6rem;
@@ -29,7 +32,6 @@
     }
     &--title {
       height: 4rem;
-      margin-bottom: 1.8rem;
     }
   }
   &__form-submit {

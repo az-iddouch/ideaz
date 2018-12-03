@@ -38,3 +38,10 @@
     cursor: pointer;
   }
 }
+
+.form-error {
+  color: $color-red;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}

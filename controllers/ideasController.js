@@ -6,15 +6,15 @@ exports.addIdea = (req, res) => {
 };
 
 exports.validateAdd = (req, res, next) => {
-  let errors = [];
+  let errors = {};
 
   if (!req.body.title) {
-    errors.push({ text: 'please add a title !' });
+    errors.title = 'please add a title !';
   }
   if (!req.body.body) {
-    errors.push({ text: 'please add a body !' });
+    errors.body = 'please add a body !';
   }
-  if (errors.length > 0) {
+  if (Object.keys(errors).length > 0) {
     res.render('ideas/add', { errors, title: req.body.title, body: req.body.body });
     return;
   } else {
@@ -22,15 +22,15 @@ exports.validateAdd = (req, res, next) => {
   }
 };
 exports.validateUpdate = async (req, res, next) => {
-  let errors = [];
+  let errors = {};
 
   if (!req.body.title) {
-    errors.push({ text: 'please add a title !' });
+    errors.title = 'please add a title !';
   }
   if (!req.body.body) {
-    errors.push({ text: 'please add a body !' });
+    errors.body = 'please add a body !';
   }
-  if (errors.length > 0) {
+  if (Object.keys(errors).length > 0) {
     const idea = await Idea.findOne({ _id: req.params.id });
     res.render('ideas/edit', { errors, idea });
     return;
@@ -75,7 +75,8 @@ exports.updateIdea = async (req, res) => {
       new: true, // return the new store
       runValidators: true
     }).exec();
-    res.send('updated !');
+    req.flash('success', 'your idea is successfully updated !');
+    res.redirect('/ideas');
   } catch (err) {
     console.log(err);
   }
