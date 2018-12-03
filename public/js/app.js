@@ -33,4 +33,9 @@ deleteIcons.forEach(icon =>
 );
 
 // fade flash messages after 1.5s
-// const flashes = document.querySelectorAll('.error')
+const flash = document.querySelector('.flash');
+if (flash) {
+  setTimeout(() => {
+    flash.style.opacity = 0;
+  }, 2000);
+}

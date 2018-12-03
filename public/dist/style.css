@@ -27,7 +27,11 @@
   z-index: 99999999;
   -webkit-transform: translateX(50%);
       -ms-transform: translateX(50%);
-          transform: translateX(50%); }
+          transform: translateX(50%);
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s; }
   .flash--error {
     background-color: #ff6262;
     color: #fff; }

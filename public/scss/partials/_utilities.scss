@@ -25,6 +25,8 @@
   border-radius: 0.4rem;
   z-index: 99999999;
   transform: translateX(50%);
+  opacity: 1;
+  transition: opacity 0.3s;
   &--error {
     background-color: $color-red;
     color: $color-white;
