@@ -15,7 +15,8 @@ navLinks.forEach(link => {
   });
 });
 
-const dismissErrors = document.querySelectorAll('.error__dismiss');
+// dismiss errors
+const dismissErrors = document.querySelectorAll('.flash__dismiss');
 dismissErrors.forEach(x =>
   x.addEventListener('click', function(e) {
     e.target.parentElement.remove();
@@ -30,3 +31,6 @@ deleteIcons.forEach(icon =>
     document.querySelector('#delete-idea-form').submit();
   })
 );
+
+// fade flash messages after 1.5s
+// const flashes = document.querySelectorAll('.error')

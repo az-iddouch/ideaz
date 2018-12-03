@@ -11,7 +11,7 @@
   stroke-linejoin: round;
   fill: none; }
 
-.error {
+.flash {
   position: absolute;
   top: 10rem;
   right: 50%;
@@ -20,39 +20,21 @@
   display: -ms-flexbox;
   display: flex;
   padding: 1.3rem 2rem;
-  background-color: #ff6262;
   font-size: 1.4rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
-  color: #fff;
   border-radius: 0.4rem;
   z-index: 99999999;
   -webkit-transform: translateX(50%);
       -ms-transform: translateX(50%);
           transform: translateX(50%); }
-  .error__dismiss {
-    margin-left: auto;
-    cursor: pointer; }
-
-.success {
-  position: absolute;
-  top: 10rem;
-  right: 50%;
-  width: 60rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1.3rem 2rem;
-  background-color: #7aff7a;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #0c0c0c;
-  border-radius: 0.4rem;
-  z-index: 99999999;
-  -webkit-transform: translateX(50%);
-      -ms-transform: translateX(50%);
-          transform: translateX(50%); }
-  .success__dismiss {
+  .flash--error {
+    background-color: #ff6262;
+    color: #fff; }
+  .flash--success {
+    background-color: #7aff7a;
+    color: #0c0c0c; }
+  .flash__dismiss {
     margin-left: auto;
     cursor: pointer; }
 
