@@ -4,6 +4,7 @@
     width: 90%;
     display: flex;
     margin: 5rem auto;
+    box-shadow: 1px 1px 25px -6px rgba(0, 0, 0, 0.3);
   }
   &__left {
     flex: 0 0 45%;
@@ -53,6 +54,8 @@
     vertical-align: middle;
   }
   &__image {
-    width: 100%;
+    // this fixed the extra space in the bottom of the image
+    display: block;
+    max-width: 100%;
   }
 }
