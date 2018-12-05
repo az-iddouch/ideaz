@@ -38,23 +38,24 @@ router.get('/users/login', usersController.showLogin);
 router.get('/users/register', usersController.showRegister);
 router.post(
   '/users/register',
-  [
-    sanitizeBody('name'),
-    sanitizeBody('email'),
-    sanitizeBody('password'),
-    sanitizeBody('password-confirm'),
-    body('name').isLength({ min: 1 }),
-    body('email')
-      .isLength({ min: 4 })
-      .isEmail()
-      .normalizeEmail({
-        emove_dots: false,
-        remove_extention: false,
-        gmail_remove_subaddress: false
-      }),
-    body('password').isLength({ min: 6 }),
-    check('password-confirm', 'your passwords must match !').matches('password')
-  ],
+  // [
+  //   sanitizeBody('name'),
+  //   sanitizeBody('email'),
+  //   sanitizeBody('password'),
+  //   sanitizeBody('password-confirm'),
+  //   body('name').isLength({ min: 1 }),
+  //   body('email')
+  //     .isLength({ min: 4 })
+  //     .isEmail()
+  //     .normalizeEmail({
+  //       emove_dots: false,
+  //       remove_extention: false,
+  //       gmail_remove_subaddress: false
+  //     }),
+  //   body('password').isLength({ min: 6 }),
+  //   check('password-confirm', 'your passwords must match !').matches('password')
+  // ],
+  usersController.validateRegister,
   usersController.register
 );
 

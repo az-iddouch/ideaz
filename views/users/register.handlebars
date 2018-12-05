@@ -7,13 +7,17 @@
       <h2 class="auth__header">Register</h2>
       <form action="/users/register" method="POST" class="auth__form">
         <label for="name" class="auth__label">Name</label>
-        <input type="text" id="name" name="name" class="auth__input">
+        <input type="text" id="name" name="name" value="{{infos.name}}" class="auth__input">
+        <div class="form-error"> {{errors.name.msg}} </div>
         <label for="email" class="auth__label">Email</label>
-        <input type="email" id="email" name="email" class="auth__input">
+        <input type="email" id="email" name="email" value="{{infos.email}}" class="auth__input">
+        <div class="form-error"> {{errors.email.msg}} </div>
         <label for="password" class="auth__label">Password</label>
-        <input type="password" id="password" name="password" class="auth__input">
+        <input type="password" id="password" name="password" value="{{infos.password}}" class="auth__input">
+        <div class="form-error"> {{errors.password.msg}} </div>
         <label for="password-confirm" class="auth__label">Confirm Password</label>
-        <input type="password" id="password-confirm" name="password-confirm" class="auth__input">
+        <input type="password" id="password-confirm" name="passwordConfirm" value="{{infos.passwordConfirm}}" class="auth__input">
+        <div class="form-error"> {{errors.passwordConfirm.msg}} </div>
         <input type="submit" class="auth__submit" value="Register">
       </form>
     </div>

@@ -46,7 +46,8 @@
   color: #ff6262;
   font-weight: 400;
   font-size: 1.4rem;
-  margin-top: 1rem; }
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem; }
 
 *,
 *::after,
@@ -395,8 +396,7 @@ body {
   color: #0c0c0c;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.6rem;
-  margin-bottom: 1rem; }
+  border-radius: 0.6rem; }
 
 .auth__submit {
   background-color: #8981d8;

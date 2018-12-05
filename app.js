@@ -16,7 +16,7 @@ require('./models/User');
 const routes = require('./routes/index');
 
 // import passport settings
-require('./passport');
+// require('./passport');
 
 const app = express();
 // connect to our mongoDB
