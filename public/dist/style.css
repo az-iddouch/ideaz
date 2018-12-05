@@ -340,7 +340,7 @@ body {
     -o-transition: color 0.3s;
     transition: color 0.3s; }
 
-.login__wrapper {
+.auth__wrapper {
   background-color: #fff;
   width: 90%;
   display: -webkit-box;
@@ -350,7 +350,7 @@ body {
   -webkit-box-shadow: 1px 1px 25px -6px rgba(0, 0, 0, 0.3);
           box-shadow: 1px 1px 25px -6px rgba(0, 0, 0, 0.3); }
 
-.login__left {
+.auth__left {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 45%;
           flex: 0 0 45%;
@@ -368,11 +368,11 @@ body {
           flex-direction: column;
   padding: 4rem; }
 
-.login__header {
+.auth__header {
   font-size: 6.5rem;
   font-weight: 300; }
 
-.login__form {
+.auth__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -381,13 +381,13 @@ body {
       -ms-flex-direction: column;
           flex-direction: column; }
 
-.login__label {
+.auth__label {
   font-size: 1.4rem;
   font-weight: 600;
   color: #616161;
   margin-bottom: 0.75rem; }
 
-.login__input {
+.auth__input {
   font-family: 'Nunito', sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
@@ -398,7 +398,7 @@ body {
   border-radius: 0.6rem;
   margin-bottom: 1rem; }
 
-.login__submit {
+.auth__submit {
   background-color: #8981d8;
   border: none;
   border-radius: 0.6rem;
@@ -408,13 +408,16 @@ body {
   margin-top: 0.5rem;
   cursor: pointer; }
 
-.login__right {
+.auth__right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   vertical-align: middle; }
 
-.login__image {
+.auth__image {
   display: block;
   max-width: 100%; }
+  .auth__image--register {
+    -webkit-filter: grayscale(50%);
+            filter: grayscale(50%); }
 

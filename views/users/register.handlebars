@@ -1,1 +1,21 @@
-<h1>register</h1>
+<div class="auth">
+  <div class="auth__wrapper">
+    <div class="auth__right">
+      <img src="/images/register-ideaz.jpeg" alt="creative image" class="auth__image auth__image--register">
+    </div>
+    <div class="auth__left">
+      <h2 class="auth__header">Register</h2>
+      <form action="/users/register" method="POST" class="auth__form">
+        <label for="name" class="auth__label">Name</label>
+        <input type="text" id="name" name="name" class="auth__input">
+        <label for="email" class="auth__label">Email</label>
+        <input type="email" id="email" name="email" class="auth__input">
+        <label for="password" class="auth__label">Password</label>
+        <input type="password" id="password" name="password" class="auth__input">
+        <label for="password-confirm" class="auth__label">Confirm Password</label>
+        <input type="password" id="password-confirm" name="password-confirm" class="auth__input">
+        <input type="submit" class="auth__submit" value="Register">
+      </form>
+    </div>
+  </div>
+</div>

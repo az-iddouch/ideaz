@@ -1,4 +1,4 @@
-.login {
+.auth {
   &__wrapper {
     background-color: $color-white;
     width: 90%;
@@ -57,5 +57,8 @@
     // this fixed the extra space in the bottom of the image
     display: block;
     max-width: 100%;
+    &--register {
+      filter: grayscale(50%);
+    }
   }
 }

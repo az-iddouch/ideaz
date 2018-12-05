@@ -6,10 +6,17 @@ const session = require('express-session');
 const helpers = require('./helpers');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const expressValidator = require('express-validator');
 
 // Load models
 require('./models/Idea');
+require('./models/User');
+
 const routes = require('./routes/index');
+
+// import passport settings
+require('./passport');
 
 const app = express();
 // connect to our mongoDB
@@ -45,6 +52,10 @@ app.use(
     saveUninitialized: true
   })
 );
+
+// Passwport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // for flashing users
 app.use(flash());
