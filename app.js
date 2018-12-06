@@ -24,6 +24,7 @@ mongoose
   .connect(
     'mongodb://localhost/ideaz-dev',
     {
+      useCreateIndex: true,
       useNewUrlParser: true
     }
   )

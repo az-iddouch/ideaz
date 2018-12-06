@@ -14,8 +14,8 @@
   <div class="container">
     {{> _navbar}}
     <div class="right-section">
-      <div class="topbar">
-        <div class="wrapper">
+      <div class="wrapper topbar">
+        {{!-- <div class="wrapper"> --}}
           <form action="#" class="search-form">
             <label for="search" class="search-form__label">
               <svg class="search-form__icon feather ">
@@ -24,7 +24,12 @@
             </label>
             <input type="text" class="search-form__input" placeholder="Search" id="search">
           </form>
-        </div>
+          <div class="topbar__auth">
+            <a href="/users/login" class="topbar__login-link">Login</a>
+            <a href="/users/register" class="topbar__register-btn">Register</a>
+          </div>
+          {{!--
+        </div> --}}
       </div>
       <div class="wrapper">
         {{> _alert}}

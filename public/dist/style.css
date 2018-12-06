@@ -72,6 +72,9 @@ body {
   font-family: 'Nunito', sans-serif;
   background-color: #f8f8f8; }
 
+a {
+  text-decoration: none; }
+
 .container {
   max-width: 120rem;
   margin: 6rem auto;
@@ -164,9 +167,16 @@ body {
     background-color: #f8f8f8; }
     .container .right-section .topbar {
       background-color: #fff;
-      padding: 1.4rem 0;
+      padding-top: 1.4rem;
+      padding-bottom: 1.4rem;
       -webkit-box-shadow: 0px 5px 20px -10px rgba(0, 0, 0, 0.35);
-              box-shadow: 0px 5px 20px -10px rgba(0, 0, 0, 0.35); }
+              box-shadow: 0px 5px 20px -10px rgba(0, 0, 0, 0.35);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
       .container .right-section .topbar .search-form {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -185,6 +195,36 @@ body {
           font-size: 1.4rem;
           font-weight: 600;
           color: #0c0c0c; }
+      .container .right-section .topbar__auth {
+        margin-left: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+      .container .right-section .topbar__register-btn:link, .container .right-section .topbar__register-btn:visited {
+        padding: 1rem 3rem;
+        background-color: #ff4b90;
+        color: #fff;
+        font-size: 1.4rem;
+        font-weight: 400;
+        border-radius: 5px;
+        margin-left: 2rem;
+        -webkit-transition: background-color 0.3s;
+        -o-transition: background-color 0.3s;
+        transition: background-color 0.3s; }
+      .container .right-section .topbar__register-btn:active, .container .right-section .topbar__register-btn:hover {
+        background-color: #ff3884; }
+      .container .right-section .topbar__login-link:link, .container .right-section .topbar__login-link:visited {
+        color: #0c0c0c;
+        font-size: 1.5rem;
+        font-weight: 500;
+        -webkit-transition: color 0.3s;
+        -o-transition: color 0.3s;
+        transition: color 0.3s; }
+      .container .right-section .topbar__login-link:active, .container .right-section .topbar__login-link:hover {
+        color: #ff4b90; }
 
 .hover-effect {
   display: inline-block;
