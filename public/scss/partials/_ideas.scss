@@ -65,4 +65,12 @@
     width: 1.7rem;
     transition: color 0.3s;
   }
+  &__no-ideas {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 5rem auto;
+    grid-column-start: 1;
+    grid-column-end: span col4-start;
+  }
 }

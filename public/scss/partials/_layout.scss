@@ -136,6 +136,34 @@
       &__login-link:hover {
         color: $color-pink;
       }
+      &__user {
+        display: flex;
+        align-items: center;
+      }
+      &__user-avatar {
+        width: 3.2rem;
+        height: 3.2rem;
+        display: block;
+      }
+      &__user-avatar-img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+      &__user-name {
+        color: $color-text-dark;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-left: 1rem;
+      }
+      &__logout-link {
+        margin-left: 1.5rem;
+      }
+      &__logout-icon {
+        // color: $color-text-dark;
+        color: $color-pink;
+        width: 2.2rem;
+      }
     }
   }
 }

@@ -43,7 +43,7 @@ exports.validateRegister = [
     })
 ];
 
-exports.register = async (req, res) => {
+exports.register = async (req, res, next) => {
   const errors = validationResult(req);
   const infos = {
     name: req.body.name,
@@ -72,15 +72,29 @@ exports.register = async (req, res) => {
         user
           .save()
           .then(user => {
-            res.send('passed....');
+            next();
           })
           .catch(err => console.log(err));
       });
     });
   }
-  // User.create({
-  //   username: req.body.username,
-  //   password: req.body.password
-  // }).then(user => res.json(user));
-  // res.send('it passed');
+};
+
+exports.account = (req, res) => {
+  res.render('users/account');
+};
+
+exports.updateAccount = async (req, res) => {
+  const updates = {
+    name: req.body.name,
+    email: req.body.email
+  };
+
+  const user = await User.findOneAndUpdate(
+    { _id: req.user._id },
+    { $set: updates },
+    { new: true, runValidators: true }
+  );
+  req.flash('success', 'profil successfully updated !');
+  res.redirect('/ideas');
 };

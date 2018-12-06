@@ -41,6 +41,7 @@ exports.validateUpdate = async (req, res, next) => {
 
 exports.submitIdea = async (req, res) => {
   try {
+    req.body.author = req.user._id;
     await new Idea(req.body).save();
     req.flash('success', 'your idea has been successfully created.');
     res.redirect('/ideas');
@@ -51,10 +52,18 @@ exports.submitIdea = async (req, res) => {
 
 exports.showIdeas = async (req, res) => {
   try {
-    const ideas = await Idea.getIdeas();
+    const ideas = await Idea.find({ author: req.user._id }).sort({ date: -1 });
     res.render('ideas/index', { ideas });
+    // res.json(ideas);
   } catch (err) {
     console.log(err);
+  }
+};
+
+const confirmOwner = (idea, user) => {
+  if (!idea.author.equals(user._id)) {
+    req.flash('error', 'Not authorized !');
+    res.render('/ideas');
   }
 };
 
@@ -63,6 +72,8 @@ exports.editIdea = async (req, res) => {
     const idea = await Idea.findOne({
       _id: req.params.id
     });
+    // protect ideas Edit route
+    confirmOwner(idea, req.user);
     res.render('ideas/edit', { idea });
   } catch (err) {
     console.log(err);

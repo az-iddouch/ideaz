@@ -15,21 +15,30 @@
     {{> _navbar}}
     <div class="right-section">
       <div class="wrapper topbar">
-        {{!-- <div class="wrapper"> --}}
-          <form action="#" class="search-form">
-            <label for="search" class="search-form__label">
-              <svg class="search-form__icon feather ">
-                <use xlink:href="/icons/feather-sprite.svg#search" />
+        <form action="#" class="search-form">
+          <label for="search" class="search-form__label">
+            <svg class="search-form__icon feather ">
+              <use xlink:href="/icons/feather-sprite.svg#search" />
+            </svg>
+          </label>
+          <input type="text" class="search-form__input" placeholder="Search" id="search">
+        </form>
+        <div class="topbar__auth">
+          {{#if user}}
+          <div class="topbar__user">
+            <div class="topbar__user-avatar"><img src="{{user.gravatar}}" alt="user avatar" class="topbar__user-avatar-img"></div>
+            <a href="/account" class="topbar__user-name">Hello, {{user.name}} !</a>
+            <a href="/users/logout" class="topbar__logout-link">
+              <svg class="topbar__logout-icon feather ">
+                <use xlink:href="/icons/feather-sprite.svg#log-out" />
               </svg>
-            </label>
-            <input type="text" class="search-form__input" placeholder="Search" id="search">
-          </form>
-          <div class="topbar__auth">
-            <a href="/users/login" class="topbar__login-link">Login</a>
-            <a href="/users/register" class="topbar__register-btn">Register</a>
+            </a>
           </div>
-          {{!--
-        </div> --}}
+          {{else}}
+          <a href="/users/login" class="topbar__login-link">Login</a>
+          <a href="/users/register" class="topbar__register-btn">Register</a>
+          {{/if}}
+        </div>
       </div>
       <div class="wrapper">
         {{> _alert}}

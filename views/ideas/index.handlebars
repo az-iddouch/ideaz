@@ -2,9 +2,9 @@
   <div class="ideas__container">
     {{#each ideas}}
     <div class="ideas__idea">
-      <div class="ideas__idea-date">{{dateToDisplay}}</div>
+      <div class="ideas__idea-date">{{date}}</div>
       <h4 class="ideas__idea-title">{{title}}</h4>
-      <div class="ideas__idea-body">{{body}}</div>
+      <div class="ideas__idea-body">{{preview}}</div>
       <a href="/edit/{{_id}}" class="ideas__idea-edit-link">
         <svg class="ideas__idea-edit-icon feather">
           <use xlink:href="/icons/feather-sprite.svg#edit" />
@@ -19,7 +19,7 @@
       <form action="/delete/{{_id}}" method="POST" id="delete-idea-form"></form>
     </div>
     {{else}}
-    <p>No ideas to show !!</p>
+    <p class="ideas__no-ideas">No ideas to show !!</p>
     {{/each}}
   </div>
 </div>

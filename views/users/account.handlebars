@@ -1,0 +1,10 @@
+<div class="account">
+  <h2 class="ideas-add__header">Edit Account.</h2>
+  <form action="/account" method="POST" class="ideas-add__form">
+    <label for="name" class="ideas-add__label ideas-add__label--title">Name</label>
+    <input type="text" id="name" name="name" value="{{user.name}}" class="ideas-add__input ideas-add__input--title">
+    <label for="email" class="ideas-add__label ideas-add__label--body">Email</label>
+    <input type="email" id="email" name="email" value="{{user.email}}" class="ideas-add__input ideas-add__input--title">
+    <input type="submit" class="ideas-add__form-submit" value="Update">
+  </form>
+</div>

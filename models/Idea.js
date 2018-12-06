@@ -13,28 +13,48 @@ const IdeaSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You must supply an author'
   }
 });
 
-IdeaSchema.statics.getIdeas = function() {
-  return this.aggregate([
-    {
-      $project: {
-        title: 1,
-        body: {
-          $substr: ['$body', 0, 100]
-        },
-        date: 1,
-        dateToDisplay: {
-          $dateToString: {
-            date: '$date',
-            format: '%d-%m-%Y'
-          }
-        }
-      }
-    },
-    { $sort: { date: -1 } }
-  ]);
-};
+// IdeaSchema.statics.getIdeas = function() {
+//   return this.aggregate([
+//     {
+//       $project: {
+//         title: 1,
+//         body: {
+//           $substr: ['$body', 0, 100]
+//         },
+//         date: 1,
+//         dateToDisplay: {
+//           $dateToString: {
+//             date: '$date',
+//             format: '%d-%m-%Y'
+//           }
+//         }
+//       }
+//     },
+//     { $sort: { date: -1 } }
+//   ]);
+// };
+
+IdeaSchema.virtual('preview').get(function() {
+  if (this.body.split(' ').length < 19) {
+    return this.body
+      .split(' ')
+      .slice(0, 19)
+      .join(' ');
+  } else {
+    return this.body
+      .split(' ')
+      .slice(0, 19)
+      .join(' ')
+      .concat(' ...');
+  }
+});
 
 module.exports = mongoose.model('Idea', IdeaSchema);

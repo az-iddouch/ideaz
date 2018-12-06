@@ -1,3 +1,4 @@
+const moment = require('moment');
 import '../scss/main.scss';
 
 const navLinks = document.querySelectorAll('.navigation-list__link');
@@ -38,4 +39,16 @@ if (flash) {
   setTimeout(() => {
     flash.style.opacity = 0;
   }, 3000);
+}
+
+// handling dates
+const dates = document.querySelectorAll('.ideas__idea-date');
+if (dates) {
+  dates.forEach(date => {
+    // to fix a moment js error
+    const newDate = new Date(date.textContent);
+    date.textContent = moment(newDate.toISOString()).format('D MMM, YYYY');
+
+    // console.log(datetext);
+  });
 }

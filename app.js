@@ -7,7 +7,9 @@ const helpers = require('./helpers');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const expressValidator = require('express-validator');
+// const HandlebarsIntl = require('handlebars-intl');
+
+// HandlebarsIntl.registerWith(exphbs);
 
 // Load models
 require('./models/Idea');

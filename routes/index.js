@@ -19,18 +19,28 @@ router.get('/about', (req, res) => {
 });
 
 // add idea
-router.get('/ideas/add', ideasController.addIdea);
-router.post('/ideas', ideasController.validateAdd, ideasController.submitIdea);
+router.get('/ideas/add', authController.isLoggedIn, ideasController.addIdea);
+router.post(
+  '/ideas',
+  authController.isLoggedIn,
+  ideasController.validateAdd,
+  ideasController.submitIdea
+);
 
 // update
-router.get('/edit/:id', ideasController.editIdea);
-router.post('/update/:id', ideasController.validateUpdate, ideasController.updateIdea);
+router.get('/edit/:id', authController.isLoggedIn, ideasController.editIdea);
+router.post(
+  '/update/:id',
+  authController.isLoggedIn,
+  ideasController.validateUpdate,
+  ideasController.updateIdea
+);
 
 // delete idea
-router.post('/delete/:id', ideasController.deleteIdea);
+router.post('/delete/:id', authController.isLoggedIn, ideasController.deleteIdea);
 
 // show ideas
-router.get('/ideas', ideasController.showIdeas);
+router.get('/ideas', authController.isLoggedIn, ideasController.showIdeas);
 
 // User Routes
 router.get('/users/login', usersController.showLogin);
@@ -38,6 +48,18 @@ router.post('/users/login', authController.login);
 
 // register
 router.get('/users/register', usersController.showRegister);
-router.post('/users/register', usersController.validateRegister, usersController.register);
+router.post(
+  '/users/register',
+  usersController.validateRegister,
+  usersController.register,
+  authController.login
+);
+
+// Logout
+router.get('/users/logout', authController.logout);
+
+// Account
+router.get('/account', authController.isLoggedIn, usersController.account);
+router.post('/account', usersController.updateAccount);
 
 module.exports = router;
