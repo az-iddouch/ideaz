@@ -16,7 +16,7 @@ require('./models/User');
 const routes = require('./routes/index');
 
 // import passport settings
-// require('./passport');
+require('./passport');
 
 const app = express();
 // connect to our mongoDB
@@ -53,7 +53,7 @@ app.use(
   })
 );
 
-// Passwport
+// Passwport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -64,6 +64,7 @@ app.use(flash());
 app.use((req, res, next) => {
   res.locals.h = helpers;
   res.locals.flashes = req.flash();
+  res.locals.user = req.user || null;
   next();
 });
 

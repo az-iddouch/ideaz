@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ideasController = require('../controllers/ideasController');
 const usersController = require('../controllers/usersController');
+const authController = require('../controllers/authController');
 
 const { body, validationResult, check } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
@@ -33,30 +34,10 @@ router.get('/ideas', ideasController.showIdeas);
 
 // User Routes
 router.get('/users/login', usersController.showLogin);
+router.post('/users/login', authController.login);
 
 // register
 router.get('/users/register', usersController.showRegister);
-router.post(
-  '/users/register',
-  // [
-  //   sanitizeBody('name'),
-  //   sanitizeBody('email'),
-  //   sanitizeBody('password'),
-  //   sanitizeBody('password-confirm'),
-  //   body('name').isLength({ min: 1 }),
-  //   body('email')
-  //     .isLength({ min: 4 })
-  //     .isEmail()
-  //     .normalizeEmail({
-  //       emove_dots: false,
-  //       remove_extention: false,
-  //       gmail_remove_subaddress: false
-  //     }),
-  //   body('password').isLength({ min: 6 }),
-  //   check('password-confirm', 'your passwords must match !').matches('password')
-  // ],
-  usersController.validateRegister,
-  usersController.register
-);
+router.post('/users/register', usersController.validateRegister, usersController.register);
 
 module.exports = router;

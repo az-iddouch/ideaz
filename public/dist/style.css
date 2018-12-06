@@ -49,6 +49,9 @@
   margin-top: 0.5rem;
   margin-bottom: 0.5rem; }
 
+.u-input-mb {
+  margin-bottom: 0.9rem; }
+
 *,
 *::after,
 *::before {
