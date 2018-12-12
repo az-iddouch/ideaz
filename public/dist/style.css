@@ -481,7 +481,19 @@ a {
   color: #fff;
   font-size: 1.5rem;
   margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
   cursor: pointer; }
+
+.auth__forgot-link {
+  text-decoration: none;
+  color: #8981d8;
+  font-size: 1.2rem;
+  font-weight: 600;
+  -ms-flex-item-align: baseline;
+      align-self: baseline; }
+
+.auth__forgot-link:hover {
+  color: #6a61c0; }
 
 .auth__right {
   -webkit-box-flex: 1;
@@ -495,4 +507,54 @@ a {
   .auth__image--register {
     -webkit-filter: grayscale(50%);
             filter: grayscale(50%); }
+
+.forgot__header {
+  font-weight: 300;
+  font-size: 4.2rem;
+  color: #0c0c0c;
+  padding-top: 4rem; }
+
+.forgot__sub-header {
+  font-weight: 400;
+  font-size: 2rem;
+  color: #0c0c0c;
+  padding-top: 1rem;
+  margin-bottom: 6rem; }
+
+.forgot__form {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.forgot__form-label {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 1rem; }
+
+.forgot__form-input {
+  font-size: 1.6rem;
+  font-family: 'Nunito', sans-serif;
+  color: #0c0c0c;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem; }
+
+.forgot__form-submit {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  padding: 1.1rem 3rem;
+  margin-top: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #8981d8;
+  color: #fff;
+  cursor: pointer; }
 

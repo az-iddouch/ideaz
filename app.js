@@ -15,12 +15,16 @@ const passport = require('passport');
 require('./models/Idea');
 require('./models/User');
 
+// import environmental variables from our variables.env file
+require('dotenv').config({ path: 'variables.env' });
+
 const routes = require('./routes/index');
 
 // import passport settings
 require('./passport');
 
 const app = express();
+
 // connect to our mongoDB
 mongoose
   .connect(

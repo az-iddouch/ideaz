@@ -61,5 +61,7 @@ router.get('/users/logout', authController.logout);
 // Account
 router.get('/account', authController.isLoggedIn, usersController.account);
 router.post('/account', usersController.updateAccount);
+router.get('/account/forgot', authController.showForgot);
+router.post('/account/forgot', authController.forgot);
 
 module.exports = router;
