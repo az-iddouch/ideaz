@@ -44,7 +44,7 @@ exports.forgot = async (req, res) => {
     }
     // 2. set reset tokens and expiry on their accounts
     user.resetPasswordToken = crypto.randomBytes(25).toString('hex');
-    user.resetPasswordExpires = Date.now() + 3600000; // an hour from now
+    user.resetPasswordExpires = Date.now() + 7200000; // an hour from now
     await user.save();
 
     // 3. send them an email with the tokens
@@ -95,11 +95,13 @@ exports.updatePassword = async (req, res) => {
     // PROBLEM
     const user = await User.findOne({
       resetPasswordToken: req.params.token,
-      resetPasswordExpires: { $gt: Date.now() } //$gt ==> greater than
+      resetPasswordExpires: { $gt: Date.now() }
     });
 
+    // res.json(req.params);
+
     if (!user) {
-      req.flash('error', 'password reset is invalid or has expired!');
+      req.flash('error', 'password reset is invalid or has expired! PROBLEM');
       res.redirect('/users/login');
       return;
     }
