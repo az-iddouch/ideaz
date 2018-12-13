@@ -27,6 +27,7 @@
   transform: translateX(50%);
   opacity: 1;
   transition: opacity 0.3s;
+  word-break: break-all;
   &--error {
     background-color: $color-red;
     color: $color-white;
@@ -38,6 +39,7 @@
   &__dismiss {
     margin-left: auto;
     cursor: pointer;
+    padding-left: 1rem;
   }
 }
 

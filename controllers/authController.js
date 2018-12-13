@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const crypto = require('crypto');
 const mail = require('../mail');
+const bcrypt = require('bcryptjs');
 
 exports.login = (req, res, next) => {
   passport.authenticate('local', {
@@ -54,9 +55,76 @@ exports.forgot = async (req, res) => {
       subject: 'password reset',
       resetURL
     });
-    req.flash('success', `now you can go to your email to get you password reset Link ${resetURL}`);
+    req.flash('success', 'a password reset email has been sent to, please go check your email!');
     // 4. redirect to login page
     res.redirect('/');
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.reset = async (req, res) => {
+  try {
+    const user = await User.findOne({
+      resetPasswordToken: req.params.token,
+      resetPasswordExpires: { $gt: Date.now() }
+    });
+    if (!user) {
+      req.flash('error', 'password reset is invalid or expired');
+      res.redirect('/users/login');
+      return;
+    }
+    // if all's good render form
+    res.render('users/reset');
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.passwordConfirmed = (req, res, next) => {
+  if (req.body.password === req.body.passwordConfirm) {
+    next();
+    return;
+  }
+  req.flash('error', 'your passwords does not match !');
+  res.redirect('back');
+};
+
+exports.updatePassword = async (req, res) => {
+  try {
+    // PROBLEM
+    const user = await User.findOne({
+      resetPasswordToken: req.params.token,
+      resetPasswordExpires: { $gt: Date.now() } //$gt ==> greater than
+    });
+
+    if (!user) {
+      req.flash('error', 'password reset is invalid or has expired!');
+      res.redirect('/users/login');
+      return;
+    }
+
+    // set user password to typed password
+    user.password = req.body.password;
+
+    // set password reset token, and expiry to null
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+
+    // hash password and save user
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(user.password, salt, (err, hash) => {
+        if (err) throw err;
+        user.password = hash;
+        user
+          .save()
+          .then(user => {
+            req.flash('success', 'your password has been successfully updated !');
+            res.redirect('/users/login');
+          })
+          .catch(err => console.log(err));
+      });
+    });
   } catch (err) {
     console.log(err);
   }

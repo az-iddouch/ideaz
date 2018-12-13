@@ -63,5 +63,11 @@ router.get('/account', authController.isLoggedIn, usersController.account);
 router.post('/account', usersController.updateAccount);
 router.get('/account/forgot', authController.showForgot);
 router.post('/account/forgot', authController.forgot);
+router.get('/account/reset/:token', authController.reset);
+router.post(
+  '/account/reset/:token',
+  authController.passwordConfirmed,
+  authController.updatePassword
+);
 
 module.exports = router;

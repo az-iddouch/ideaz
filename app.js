@@ -7,7 +7,6 @@ const helpers = require('./helpers');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-// const HandlebarsIntl = require('handlebars-intl');
 
 // HandlebarsIntl.registerWith(exphbs);
 
@@ -28,7 +27,7 @@ const app = express();
 // connect to our mongoDB
 mongoose
   .connect(
-    'mongodb://localhost/ideaz-dev',
+    process.env.DATABASE,
     {
       useCreateIndex: true,
       useNewUrlParser: true
@@ -78,7 +77,7 @@ app.use((req, res, next) => {
 // After allllll that above middleware, we finally handle our own routes!
 app.use('/', routes);
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server started on port ${port} 🚀🚀🚀🚀`);
 });

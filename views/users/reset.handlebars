@@ -1,0 +1,12 @@
+<div class="reset">
+  <h2 class="reset__header">
+    Reset your password.
+  </h2>
+  <form action="/account/reset/:token" method="POST" class="reset__form">
+    <label for="password" class="reset__form-label">Password</label>
+    <input type="password" id="password" class="reset__form-input" name="password">
+    <label for="password-confirm" class="reset__form-label">Confirm Password</label>
+    <input type="password" id="password-confirm" class="reset__form-input" name="passwordConfirm">
+    <input type="submit" value="Submit" class="reset__form-submit">
+  </form>
+</div>
