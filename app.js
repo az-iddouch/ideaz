@@ -13,6 +13,7 @@ const passport = require('passport');
 // Load models
 require('./models/Idea');
 require('./models/User');
+require('./models/Categorie');
 
 // import environmental variables from our variables.env file
 require('dotenv').config({ path: 'variables.env' });

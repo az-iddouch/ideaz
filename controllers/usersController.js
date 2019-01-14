@@ -4,6 +4,7 @@ const promisify = require('es6-promisify');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const User = mongoose.model('User');
+const Categorie = mongoose.model('Categorie');
 
 exports.showLogin = (req, res) => {
   res.render('users/login');
@@ -72,6 +73,15 @@ exports.register = async (req, res, next) => {
         user
           .save()
           .then(user => {
+            const cat1 = new Categorie({
+              text: 'Business'
+            }).save();
+            const cat2 = new Categorie({
+              text: 'Personal'
+            }).save();
+            return Promise.all([cat1, cat2]);
+          })
+          .then(res => {
             next();
           })
           .catch(err => console.log(err));

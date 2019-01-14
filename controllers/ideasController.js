@@ -54,7 +54,7 @@ exports.showIdeas = async (req, res) => {
   try {
     const ideas = await Idea.find({ author: req.user._id }).sort({ date: -1 });
     res.render('ideas/index', { ideas });
-    // res.json(ideas);
+    // res.json();
   } catch (err) {
     console.log(err);
   }

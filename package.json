@@ -34,6 +34,7 @@
     "nodemailer-html-to-text": "^3.0.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "randomcolor": "^0.5.3",
     "validator": "^10.9.0"
   },
   "browserslist": "last 3 versions",

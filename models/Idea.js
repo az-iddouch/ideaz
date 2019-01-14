@@ -10,6 +10,10 @@ const IdeaSchema = new Schema({
     type: String,
     required: 'you must supply a body for the idea'
   },
+  tags: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Categorie'
+  },
   date: {
     type: Date,
     default: Date.now
@@ -42,6 +46,7 @@ const IdeaSchema = new Schema({
 //   ]);
 // };
 
+// this is for fixing displayed text problem in Ideas cards
 IdeaSchema.virtual('preview').get(function() {
   if (this.body.split(' ').length < 19) {
     return this.body

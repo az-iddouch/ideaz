@@ -98,8 +98,6 @@ exports.updatePassword = async (req, res) => {
       resetPasswordExpires: { $gt: Date.now() }
     });
 
-    // res.json(req.params);
-
     if (!user) {
       req.flash('error', 'password reset is invalid or has expired! PROBLEM');
       res.redirect('/users/login');
