@@ -15,6 +15,8 @@ require('./models/Idea');
 require('./models/User');
 require('./models/Categorie');
 
+const Categorie = mongoose.model('Categorie');
+
 // import environmental variables from our variables.env file
 require('dotenv').config({ path: 'variables.env' });
 
@@ -68,11 +70,18 @@ app.use(passport.session());
 app.use(flash());
 
 // pass variables to our templates + all requests
-app.use((req, res, next) => {
-  res.locals.h = helpers;
-  res.locals.flashes = req.flash();
-  res.locals.user = req.user || null;
-  next();
+app.use(async (req, res, next) => {
+  try {
+    // to have categories available all through our application
+    const categories = req.user && (await Categorie.find({ owner: req.user._id }));
+    res.locals.h = helpers;
+    res.locals.flashes = req.flash();
+    res.locals.user = req.user || null;
+    res.locals.categories = categories || null;
+    next();
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // After allllll that above middleware, we finally handle our own routes!
