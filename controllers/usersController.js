@@ -74,10 +74,12 @@ exports.register = async (req, res, next) => {
           .save()
           .then(user => {
             const cat1 = new Categorie({
-              text: 'Business'
+              text: 'Business',
+              owner: user._id
             }).save();
             const cat2 = new Categorie({
-              text: 'Personal'
+              text: 'Personal',
+              owner: user._id
             }).save();
             return Promise.all([cat1, cat2]);
           })
