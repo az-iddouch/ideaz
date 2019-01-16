@@ -7,9 +7,13 @@
   }
   &__form {
     width: 65%;
-    margin: 3rem auto;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
+    &:first-of-type {
+      margin-top: 3rem;
+    }
   }
   &__label {
     font-size: 3rem;
@@ -43,5 +47,46 @@
     background-color: $color-primary;
     color: $color-white;
     cursor: pointer;
+  }
+  &__categorie {
+    font-size: 1.5rem;
+    margin-right: 1.8rem;
+    &-radio {
+      display: none;
+    }
+    &-label {
+      padding-left: 3.5rem;
+      padding-top: 0.3rem;
+      cursor: pointer;
+      position: relative;
+      &::before {
+        content: '';
+        background-color: $color-grey;
+        border: 2px solid $color-primary;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      &:after {
+        content: '';
+        background-color: $color-primary;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        opacity: 0;
+        transform: scale(2);
+        transition: transform 0.3s linear, opacity 0.3s linear;
+      }
+    }
+    &-radio:checked + label:after {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }

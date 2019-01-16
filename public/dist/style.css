@@ -54,6 +54,15 @@
 .u-input-mb {
   margin-bottom: 0.9rem; }
 
+.form-row {
+  margin-top: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
 *,
 *::after,
 *::before {
@@ -80,7 +89,7 @@ a {
 .container {
   max-width: 120rem;
   margin: 6rem auto;
-  min-height: 65rem;
+  min-height: 75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -351,7 +360,8 @@ a {
 
 .ideas-add__form {
   width: 65%;
-  margin: 3rem auto;
+  margin-left: auto;
+  margin-right: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -359,6 +369,8 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
+  .ideas-add__form:first-of-type {
+    margin-top: 3rem; }
 
 .ideas-add__label {
   font-size: 3rem;
@@ -390,6 +402,50 @@ a {
   background-color: #8981d8;
   color: #fff;
   cursor: pointer; }
+
+.ideas-add__categorie {
+  font-size: 1.5rem;
+  margin-right: 1.8rem; }
+  .ideas-add__categorie-radio {
+    display: none; }
+  .ideas-add__categorie-label {
+    padding-left: 3.5rem;
+    padding-top: 0.3rem;
+    cursor: pointer;
+    position: relative; }
+    .ideas-add__categorie-label::before {
+      content: '';
+      background-color: #f8f8f8;
+      border: 2px solid #8981d8;
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0; }
+    .ideas-add__categorie-label:after {
+      content: '';
+      background-color: #8981d8;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      opacity: 0;
+      -webkit-transform: scale(2);
+          -ms-transform: scale(2);
+              transform: scale(2);
+      -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
+      transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
+      -o-transition: transform 0.3s linear, opacity 0.3s linear;
+      transition: transform 0.3s linear, opacity 0.3s linear;
+      transition: transform 0.3s linear, opacity 0.3s linear, -webkit-transform 0.3s linear; }
+  .ideas-add__categorie-radio:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1); }
 
 .ideas {
   padding-top: 4rem; }

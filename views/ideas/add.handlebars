@@ -3,6 +3,16 @@
   <form action="/ideas" method="POST" class="ideas-add__form">
     <label for="title" class="ideas-add__label ideas-add__label--title">Title</label>
     <input type="text" id="title" name="title" value="{{title}}" class="ideas-add__input ideas-add__input--title">
+    <div class="form-row">
+
+      {{#each categories}}
+      <div class="ideas-add__categorie">
+        <input type="radio" name="categorie" value={{_id}} class="ideas-add__categorie-radio" id="{{text}}">
+        <label for="{{text}}" class="ideas-add__categorie-label">{{text}}</label>
+      </div>
+      {{/each}}
+
+    </div>
     {{#if errors}}
     <div class="form-error">{{errors.title}}</div>
     {{/if}}
