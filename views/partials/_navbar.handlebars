@@ -42,7 +42,11 @@
       </li>
     </ul>
   </nav>
-  {{#each categories}}
-  <li>{{text}}</li>
-  {{/each}}
+  <ul class="categories-list">
+    {{#each categories}}
+    <li class="categories-list__item">
+      <div class="categories-list__item-circle" style="background-color:{{color}};"></div><a href="#" class="categories-list__item-link">{{text}}</a>
+    </li>
+    {{/each}}
+  </ul>
 </div>
