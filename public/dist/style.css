@@ -473,6 +473,12 @@ a {
     font-size: 1.6rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem; }
+  .ideas__idea-categorie {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    margin-right: 1.5rem; }
   .ideas__idea-body {
     color: #0c0c0c;
     font-weight: 400;

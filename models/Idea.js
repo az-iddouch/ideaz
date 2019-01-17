@@ -10,7 +10,7 @@ const IdeaSchema = new Schema({
     type: String,
     required: 'you must supply a body for the idea'
   },
-  tags: {
+  categorie: {
     type: mongoose.Schema.ObjectId,
     ref: 'Categorie'
   },

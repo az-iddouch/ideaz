@@ -52,9 +52,11 @@ exports.submitIdea = async (req, res) => {
 
 exports.showIdeas = async (req, res) => {
   try {
-    const ideas = await Idea.find({ author: req.user._id }).sort({ date: -1 });
+    const ideas = await Idea.find({ author: req.user._id })
+      .populate('categorie')
+      .sort({ date: -1 });
     res.render('ideas/index', { ideas });
-    // res.json();
+    // res.json(ideas);
   } catch (err) {
     console.log(err);
   }
