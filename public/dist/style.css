@@ -446,6 +446,8 @@ a {
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1); }
+  .ideas-add__categorie-radio:checked + label {
+    font-weight: 600; }
 
 .ideas {
   padding-top: 4rem; }

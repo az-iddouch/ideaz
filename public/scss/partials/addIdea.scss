@@ -88,5 +88,8 @@
       opacity: 1;
       transform: scale(1);
     }
+    &-radio:checked + label {
+      font-weight: 600;
+    }
   }
 }
