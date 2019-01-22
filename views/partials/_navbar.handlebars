@@ -42,6 +42,7 @@
       </li>
     </ul>
   </nav>
+  {{#if user}}
   <ul class="categories-list">
     {{#each categories}}
     <li class="categories-list__item">
@@ -49,4 +50,5 @@
     </li>
     {{/each}}
   </ul>
+  {{/if}}
 </div>

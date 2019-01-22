@@ -3,8 +3,11 @@
   <form action="/ideas" method="POST" class="ideas-add__form">
     <label for="title" class="ideas-add__label ideas-add__label--title">Title</label>
     <input type="text" id="title" name="title" value="{{title}}" class="ideas-add__input ideas-add__input--title">
+    {{#if errors}}
+    <div class="form-error">{{errors.title}}</div>
+    {{/if}}
 
-    <div class="form-row"> 
+    <div class="form-row">
 
       {{#each categories}}
       <div class="ideas-add__categorie">
@@ -14,10 +17,7 @@
       {{/each}}
 
     </div>
-    
-    {{#if errors}}
-    <div class="form-error">{{errors.title}}</div>
-    {{/if}}
+
     <label for="body" class="ideas-add__label ideas-add__label--body">Body</label>
     <textarea name="body" id="body" class="ideas-add__input ideas-add__input--body" cols="30" rows="8">{{body}}</textarea>
     {{#if errors}}

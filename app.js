@@ -39,8 +39,18 @@ mongoose
   .then(() => console.log('✔✔✔✔ Database Connected ... 💪💪💪'))
   .catch(err => console.log(err));
 
+const hbs = exphbs.create({
+  defaultLayout: 'main',
+  // Creating handlebars custom helpers
+  helpers: {
+    checkEquals: function(a, b, options) {
+      return a.equals(b) ? options.fn(this) : options.inverse(this);
+    }
+  }
+});
+
 // handlebars middleware
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Body parser meddleware

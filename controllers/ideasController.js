@@ -73,7 +73,7 @@ exports.editIdea = async (req, res) => {
   try {
     const idea = await Idea.findOne({
       _id: req.params.id
-    });
+    }).populate('categorie');
     // protect ideas Edit route
     confirmOwner(idea, req.user);
     res.render('ideas/edit', { idea });

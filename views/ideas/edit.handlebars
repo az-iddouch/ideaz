@@ -6,6 +6,19 @@
     {{#if errors}}
     <div class="form-error">{{errors.title}}</div>
     {{/if}}
+
+    <div class="form-row">
+
+      {{#each categories}}
+      <div class="ideas-add__categorie">
+        <input type="radio" name="categorie" value={{_id}} class="ideas-add__categorie-radio" id="{{text}}"
+          {{#checkEquals _id ../idea.categorie._id }} checked {{/checkEquals}}>
+        <label for="{{text}}" class="ideas-add__categorie-label">{{text}}</label>
+      </div>
+      {{/each}}
+
+    </div>
+
     <label for="body" class="ideas-add__label ideas-add__label--body">Body</label>
     <textarea name="body" id="body" class="ideas-add__input ideas-add__input--body" cols="30" rows="8">{{idea.body}}</textarea>
     {{#if errors}}
