@@ -5,13 +5,9 @@ const navLinks = document.querySelectorAll('.navigation-list__link');
 
 navLinks.forEach(link => {
   link.addEventListener('mouseover', function(e) {
-    console.log('hoverrrr');
-    console.log(this.previousSibling);
     this.previousElementSibling.style.backgroundColor = '#fff';
   });
   link.addEventListener('mouseout', function(e) {
-    console.log('hoverrrr');
-    console.log(this.previousSibling);
     this.previousElementSibling.style.backgroundColor = 'transparent';
   });
 });
@@ -52,3 +48,24 @@ if (dates) {
     // console.log(datetext);
   });
 }
+
+// add categorie
+const addCategorieLink = document.querySelector('.categories__add');
+addCategorieLink.addEventListener('click', e => {
+  e.preventDefault();
+  e.stopPropagation();
+  // console.log(e.target.previousElementSibling);
+  e.target.previousElementSibling.classList.add('categories__add-form--active');
+});
+
+// if clicked anywhere
+const addForm = document.querySelector('.categories__add-form');
+window.addEventListener('click', e => {
+  if ([...addForm.classList].includes('categories__add-form--active')) {
+    addForm.classList.remove('categories__add-form--active');
+  }
+});
+
+addForm.addEventListener('click', e => {
+  e.stopPropagation();
+});

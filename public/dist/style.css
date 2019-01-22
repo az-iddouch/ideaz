@@ -284,11 +284,12 @@ a {
   -o-transition: background-color 0.3s ease-out;
   transition: background-color 0.3s ease-out; }
 
-.categories-list {
-  margin-top: 6.5rem;
-  list-style: none;
-  margin-left: 2.8rem; }
-  .categories-list__item {
+.categories {
+  padding-left: 2.8rem; }
+  .categories__list {
+    margin-top: 6.5rem;
+    list-style: none; }
+  .categories__list-item {
     margin-bottom: 1.5rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -296,20 +297,52 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-  .categories-list__item-circle {
+  .categories__list-item-circle {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
     margin-right: 1.5rem; }
-  .categories-list__item-link:link, .categories-list__item-link:visited {
+  .categories__list-item-link:link, .categories__list-item-link:visited {
     font-weight: 600;
     font-size: 1.3rem;
     color: #fff;
     -webkit-transition: color 0.3s;
     -o-transition: color 0.3s;
     transition: color 0.3s; }
-  .categories-list__item-link:hover, .categories-list__item-link:active {
+  .categories__list-item-link:hover, .categories__list-item-link:active {
     color: rgba(255, 255, 255, 0.8); }
+  .categories__add:link, .categories__add:visited {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #fff; }
+  .categories__add-plus {
+    display: inline-block;
+    margin-right: 1rem;
+    font-size: 1.7rem; }
+  .categories__add-form {
+    display: none;
+    margin-bottom: 1rem; }
+  .categories__add-form--active {
+    display: block;
+    margin-bottom: 1rem; }
+  .categories__add-input {
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #fff;
+    max-width: 14rem;
+    padding: 0.7rem 1rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid #6a61c0; }
+    .categories__add-input::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.4); }
+    .categories__add-input:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.4); }
+    .categories__add-input::-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.4); }
+    .categories__add-input::placeholder {
+      color: rgba(255, 255, 255, 0.4); }
 
 .home {
   background-image: url("/images/home-bg.png");
