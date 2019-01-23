@@ -66,7 +66,7 @@ IdeaSchema.virtual('titleToDisply').get(function() {
   } else {
     return this.title
       .split(' ')
-      .slice(0, 3)
+      .slice(0, 4)
       .join(' ')
       .concat(' ...');
   }

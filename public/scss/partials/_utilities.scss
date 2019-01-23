@@ -51,6 +51,17 @@
   margin-bottom: 0.5rem;
 }
 
+.sidebar-error {
+  color: $color-red;
+  background-color: rgba($color-grey, 0.3);
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: 3px;
+}
+
 // to fix bottom spacing in some inputs
 .u-input-mb {
   margin-bottom: 0.9rem;

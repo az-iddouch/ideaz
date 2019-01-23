@@ -103,11 +103,24 @@ catAddInput &&
       <div class="categories__list-item-circle" style="background-color:${
         content.color
       };"></div><a href="#" class="categories__list-item-link">${content.text}</a>
-    </li>`;
-      e.target.parentElement.previousElementSibling.insertAdjacentHTML('beforeend', categorieNode);
+      </li>`;
       e.target.value = '';
-      if ([...e.target.parentElement.classList].includes('categories__add-form--active')) {
-        addForm.classList.remove('categories__add-form--active');
+      if (!content.error) {
+        e.target.parentElement.previousElementSibling.insertAdjacentHTML(
+          'beforeend',
+          categorieNode
+        );
+        if ([...e.target.parentElement.classList].includes('categories__add-form--active')) {
+          addForm.classList.remove('categories__add-form--active');
+        }
+      } else {
+        // hande none subscribed users adding more than 5 categories
+        const err = `<div class="sidebar-error">${content.error}</div>`;
+        e.target.parentElement.nextElementSibling.insertAdjacentHTML('afterend', err);
+        // delete error after 2.5seconds
+        setTimeout(function() {
+          document.querySelector('.sidebar-error').remove();
+        }, 2500);
       }
       console.log(content);
     }

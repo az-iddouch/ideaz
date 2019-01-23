@@ -51,6 +51,16 @@
   margin-top: 0.5rem;
   margin-bottom: 0.5rem; }
 
+.sidebar-error {
+  color: #ff6262;
+  background-color: rgba(248, 248, 248, 0.3);
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: 3px; }
+
 .u-input-mb {
   margin-bottom: 0.9rem; }
 
@@ -285,7 +295,8 @@ a {
   transition: background-color 0.3s ease-out; }
 
 .categories {
-  padding-left: 2.8rem; }
+  padding-left: 2.8rem;
+  padding-right: 2.8rem; }
   .categories__list {
     margin-top: 6.5rem;
     list-style: none; }
