@@ -313,13 +313,19 @@ a {
     height: 1rem;
     border-radius: 50%;
     margin-right: 1.5rem; }
+  .categories__list-item-remove {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: 0; }
   .categories__list-item-link:link, .categories__list-item-link:visited {
     font-weight: 600;
     font-size: 1.3rem;
     color: #fff;
     -webkit-transition: color 0.3s;
     -o-transition: color 0.3s;
-    transition: color 0.3s; }
+    transition: color 0.3s;
+    margin-right: auto; }
   .categories__list-item-link:hover, .categories__list-item-link:active {
     color: rgba(255, 255, 255, 0.8); }
   .categories__add:link, .categories__add:visited {

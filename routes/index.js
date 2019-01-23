@@ -71,7 +71,7 @@ router.post(
   authController.updatePassword
 );
 
-// Categories Routes
+// Categories Routes | API
 router.post('/categories/add', categoriesController.add);
-
+router.delete('/categories/delete', categoriesController.delete);
 module.exports = router;

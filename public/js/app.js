@@ -122,6 +122,35 @@ catAddInput &&
           document.querySelector('.sidebar-error').remove();
         }, 2500);
       }
-      console.log(content);
     }
   });
+
+// delete an categorie
+const categories = document.querySelectorAll('.categories__list-item');
+categories.forEach(el => {
+  el.addEventListener('mouseenter', e => {
+    e.target.children[2].style.opacity = 1;
+  });
+  el.addEventListener('mouseleave', e => {
+    e.target.children[2].style.opacity = 0;
+  });
+});
+
+// add event listener to every delete link in categories
+// and delete when clicked
+categories.forEach(el => {
+  el.addEventListener('click', async e => {
+    e.preventDefault();
+    const req = await fetch('/categories/delete', {
+      method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id: e.target.dataset.id }) // body data type must match "Content-Type" header
+    });
+    const res = await req.json(); // parses response to JSON
+    // remove categorie from DOM when deleted
+    e.target.parentElement.remove();
+    console.log(res);
+  });
+});

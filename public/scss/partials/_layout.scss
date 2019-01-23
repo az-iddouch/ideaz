@@ -209,12 +209,19 @@
     // background-color: red;
     margin-right: 1.5rem;
   }
+  &__list-item-remove {
+    color: $color-white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: 0;
+  }
   &__list-item-link:link,
   &__list-item-link:visited {
     font-weight: 600;
     font-size: 1.3rem;
     color: $color-white;
     transition: color 0.3s;
+    margin-right: auto;
   }
   &__list-item-link:hover,
   &__list-item-link:active {

@@ -15,3 +15,9 @@ exports.add = async (req, res) => {
     console.log('err');
   }
 };
+
+exports.delete = async (req, res) => {
+  await Categorie.findOneAndDelete({ _id: req.body.id });
+  console.log('categorie deleted');
+  res.json({ msg: 'deleted' });
+};
