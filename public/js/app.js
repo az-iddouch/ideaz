@@ -51,21 +51,64 @@ if (dates) {
 
 // add categorie
 const addCategorieLink = document.querySelector('.categories__add');
-addCategorieLink.addEventListener('click', e => {
-  e.preventDefault();
-  e.stopPropagation();
-  // console.log(e.target.previousElementSibling);
-  e.target.previousElementSibling.classList.add('categories__add-form--active');
-});
+if (addCategorieLink) {
+  addCategorieLink.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    // console.log(e.target.previousElementSibling);
+    e.target.previousElementSibling.classList.add('categories__add-form--active');
+  });
+}
 
 // if clicked anywhere
 const addForm = document.querySelector('.categories__add-form');
-window.addEventListener('click', e => {
-  if ([...addForm.classList].includes('categories__add-form--active')) {
-    addForm.classList.remove('categories__add-form--active');
-  }
-});
+if (addForm) {
+  window.addEventListener('click', e => {
+    if ([...addForm.classList].includes('categories__add-form--active')) {
+      addForm.classList.remove('categories__add-form--active');
+    }
+  });
 
-addForm.addEventListener('click', e => {
-  e.stopPropagation();
-});
+  addForm.addEventListener('click', e => {
+    e.stopPropagation();
+  });
+}
+
+// add categorie
+
+// to prevent the form from submitting when pressing Enter
+addForm &&
+  addForm.addEventListener('keydown', e => {
+    if (e.keyCode == 13) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+const catAddInput = document.querySelector('.categories__add-input');
+catAddInput &&
+  catAddInput.addEventListener('keydown', async e => {
+    // e.preventDefault();
+    if (e.keyCode == 13) {
+      const rawResponse = await fetch('/categories/add', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ text: e.target.value })
+      });
+      const content = await rawResponse.json();
+      const categorieNode = `<li class="categories__list-item">
+      <div class="categories__list-item-circle" style="background-color:${
+        content.color
+      };"></div><a href="#" class="categories__list-item-link">${content.text}</a>
+    </li>`;
+      e.target.parentElement.previousElementSibling.insertAdjacentHTML('beforeend', categorieNode);
+      e.target.value = '';
+      if ([...e.target.parentElement.classList].includes('categories__add-form--active')) {
+        addForm.classList.remove('categories__add-form--active');
+      }
+      console.log(content);
+    }
+  });

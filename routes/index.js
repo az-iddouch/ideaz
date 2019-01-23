@@ -3,6 +3,7 @@ const router = express.Router();
 const ideasController = require('../controllers/ideasController');
 const usersController = require('../controllers/usersController');
 const authController = require('../controllers/authController');
+const categoriesController = require('../controllers/categoriesController');
 
 const { body, validationResult, check } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
@@ -69,5 +70,8 @@ router.post(
   authController.passwordConfirmed,
   authController.updatePassword
 );
+
+// Categories Routes
+router.post('/categories/add', categoriesController.add);
 
 module.exports = router;
