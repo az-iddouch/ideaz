@@ -25,27 +25,6 @@ const IdeaSchema = new Schema({
   }
 });
 
-// IdeaSchema.statics.getIdeas = function() {
-//   return this.aggregate([
-//     {
-//       $project: {
-//         title: 1,
-//         body: {
-//           $substr: ['$body', 0, 100]
-//         },
-//         date: 1,
-//         dateToDisplay: {
-//           $dateToString: {
-//             date: '$date',
-//             format: '%d-%m-%Y'
-//           }
-//         }
-//       }
-//     },
-//     { $sort: { date: -1 } }
-//   ]);
-// };
-
 // this is for fixing displayed text problem in Ideas cards
 IdeaSchema.virtual('preview').get(function() {
   if (this.body.split(' ').length < 19) {

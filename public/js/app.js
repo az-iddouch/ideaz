@@ -138,9 +138,11 @@ categories.forEach(el => {
 
 // add event listener to every delete link in categories
 // and delete when clicked
-categories.forEach(el => {
+const categoriesDelbtn = document.querySelectorAll('.categories__list-item-remove');
+categoriesDelbtn.forEach(el => {
   el.addEventListener('click', async e => {
     e.preventDefault();
+    e.stopPropagation();
     const req = await fetch('/categories/delete', {
       method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
       headers: {

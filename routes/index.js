@@ -71,6 +71,9 @@ router.post(
   authController.updatePassword
 );
 
+// Categories
+router.get('/categories/:id', categoriesController.showIdeasByCategorie);
+
 // Categories Routes | API
 router.post('/categories/add', categoriesController.add);
 router.delete('/categories/delete', categoriesController.delete);
