@@ -31,22 +31,22 @@ IdeaSchema.virtual('preview').get(function() {
     return this.body;
   } else {
     return this.body
-      .split(' ')
-      .slice(0, 19)
-      .join(' ')
+      .split('')
+      .slice(0, 152)
+      .join('')
       .concat(' ...');
   }
 });
 
 // this is for fixing the displayed text problem in the ideas title
 IdeaSchema.virtual('titleToDisply').get(function() {
-  if (this.body.split(' ').length < 19) {
+  if (this.title.split(' ').length <= 3) {
     return this.title;
   } else {
     return this.title
-      .split(' ')
-      .slice(0, 4)
-      .join(' ')
+      .split('')
+      .slice(0, 13)
+      .join('')
       .concat(' ...');
   }
 });
