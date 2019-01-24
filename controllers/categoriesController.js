@@ -24,6 +24,9 @@ exports.delete = async (req, res) => {
 };
 
 exports.showIdeasByCategorie = async (req, res) => {
-  const ideas = await Idea.find({ categorie: req.params.id }).sort({ date: -1 });
-  res.json(ideas);
+  const ideas = await Idea.find({ categorie: req.params.id })
+    .populate('categorie')
+    .sort({ date: -1 });
+  const categorie = await Categorie.findOne({ _id: req.params.id });
+  res.render('categories/index', { categorie, ideas });
 };

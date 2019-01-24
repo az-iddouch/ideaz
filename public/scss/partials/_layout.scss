@@ -266,3 +266,23 @@
   //   font-size: 1.7rem;
   // }
 }
+
+// categories
+.categorie-header__wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: -1rem;
+  .categorie-header__text {
+    font-weight: 300;
+    font-size: 4.2rem;
+    color: $color-text-dark;
+    margin-bottom: 1.5rem;
+  }
+  .categorie-header__circle {
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    margin-top: -1rem;
+    margin-right: 2rem;
+  }
+}
