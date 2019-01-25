@@ -15,14 +15,15 @@
     {{> _navbar}}
     <div class="right-section">
       <div class="wrapper topbar">
-        <form action="#" class="search-form">
-          <label for="search" class="search-form__label">
-            <svg class="search-form__icon feather ">
+        <div class="search">
+          <label for="search" class="search__label">
+            <svg class="search__icon feather ">
               <use xlink:href="/icons/feather-sprite.svg#search" />
             </svg>
           </label>
-          <input type="text" class="search-form__input" placeholder="Search" id="search">
-        </form>
+          <input type="text" name="search" class="search__input" placeholder="Search" id="search">
+          <div class="search__results"></div>
+        </div>
         <div class="topbar__auth">
           {{#if user}}
           <div class="topbar__user">

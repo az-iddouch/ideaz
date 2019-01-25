@@ -24,9 +24,15 @@ exports.delete = async (req, res) => {
 };
 
 exports.showIdeasByCategorie = async (req, res) => {
-  const ideas = await Idea.find({ categorie: req.params.id })
+  const ideasPromise = Idea.find({ categorie: req.params.id })
     .populate('categorie')
     .sort({ date: -1 });
-  const categorie = await Categorie.findOne({ _id: req.params.id });
-  res.render('categories/index', { categorie, ideas });
+  const categoriePromise = Categorie.findOne({ _id: req.params.id });
+  const [ideas, categorie] = await Promise.all([ideasPromise, categoriePromise]);
+  if (categorie) {
+    res.render('categories/index', { categorie, ideas });
+  } else {
+    req.flash('error', "Categorie doesn't exist");
+    res.redirect('/ideas');
+  }
 };

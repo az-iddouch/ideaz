@@ -25,6 +25,12 @@ const IdeaSchema = new Schema({
   }
 });
 
+// Here we define our Indexes
+IdeaSchema.index({
+  title: 'text',
+  body: 'text'
+});
+
 // this is for fixing displayed text problem in Ideas cards
 IdeaSchema.virtual('preview').get(function() {
   if (this.body.split(' ').length < 19) {

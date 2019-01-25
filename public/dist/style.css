@@ -210,18 +210,21 @@ a {
       display: flex;
       -webkit-box-align: center;
           -ms-flex-align: center;
-              align-items: center; }
-      .container .right-section .topbar .search-form {
+              align-items: center;
+      position: relative; }
+      .container .right-section .topbar .search {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -webkit-box-align: center;
             -ms-flex-align: center;
-                align-items: center; }
-        .container .right-section .topbar .search-form__icon {
+                align-items: center;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+        .container .right-section .topbar .search__icon {
           width: 1.9rem;
           color: #0c0c0c; }
-        .container .right-section .topbar .search-form__input {
+        .container .right-section .topbar .search__input {
           border: none;
           outline: none;
           padding: 1rem 1rem;
@@ -229,6 +232,32 @@ a {
           font-size: 1.4rem;
           font-weight: 600;
           color: #0c0c0c; }
+        .container .right-section .topbar .search__results {
+          position: absolute;
+          left: 4rem;
+          top: 6rem;
+          z-index: 999;
+          background-color: #fff;
+          border-radius: 10px;
+          -webkit-box-shadow: 0px 1px 18px -6px rgba(0, 0, 0, 0.5);
+                  box-shadow: 0px 1px 18px -6px rgba(0, 0, 0, 0.5);
+          font-size: 1.3rem;
+          display: none;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          width: 30rem; }
+        .container .right-section .topbar .search__result {
+          color: #0c0c0c;
+          padding: 1rem 1.5rem;
+          -webkit-transition: color 0.3s;
+          -o-transition: color 0.3s;
+          transition: color 0.3s; }
+          .container .right-section .topbar .search__result--active {
+            background-color: #f8f8f8; }
+          .container .right-section .topbar .search__result:hover {
+            color: #6a61c0; }
       .container .right-section .topbar__auth {
         margin-left: auto;
         display: -webkit-box;
@@ -564,7 +593,7 @@ a {
     position: absolute;
     right: 3rem;
     bottom: 0;
-    padding-right: 2rem;
+    margin-right: 2rem;
     padding-bottom: 1rem; }
   .ideas__idea-edit-link:hover .ideas__idea-edit-icon,
   .ideas__idea-edit-link:active .ideas__idea-edit-icon {

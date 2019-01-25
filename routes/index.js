@@ -43,6 +43,9 @@ router.post('/delete/:id', authController.isLoggedIn, ideasController.deleteIdea
 // show ideas
 router.get('/ideas', authController.isLoggedIn, ideasController.showIdeas);
 
+// show single idea
+router.get('/idea/:id', ideasController.showIdea);
+
 // User Routes
 router.get('/users/login', usersController.showLogin);
 router.post('/users/login', authController.login);
@@ -72,9 +75,10 @@ router.post(
 );
 
 // Categories
-router.get('/categories/:id', categoriesController.showIdeasByCategorie);
+router.get('/categories/:id', authController.isLoggedIn, categoriesController.showIdeasByCategorie);
 
 // Categories Routes | API
-router.post('/categories/add', categoriesController.add);
-router.delete('/categories/delete', categoriesController.delete);
+router.post('/api/categories/add', categoriesController.add);
+router.delete('/api/categories/delete', categoriesController.delete);
+router.get('/api/search', authController.isLoggedIn, ideasController.searchIdeas);
 module.exports = router;

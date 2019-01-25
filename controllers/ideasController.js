@@ -62,6 +62,12 @@ exports.showIdeas = async (req, res) => {
   }
 };
 
+// show a single idea
+exports.showIdea = async (req, res) => {
+  const idea = await Idea.findOne({ _id: req.params.id });
+  res.json({ idea });
+};
+
 const confirmOwner = (idea, user) => {
   if (!idea.author.equals(user._id)) {
     req.flash('error', 'Not authorized !');
@@ -100,6 +106,37 @@ exports.deleteIdea = async (req, res) => {
     const idea = await Idea.findOneAndRemove({ _id: req.params.id });
     req.flash('success', 'your ideas is successfuly deleted .');
     res.redirect('/ideas');
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.searchIdeas = async (req, res) => {
+  try {
+    const ideas = await Idea.find(
+      {
+        // we use $text because in our Index in Idea model we set it as text
+        $text: {
+          $search: req.query.q
+        }
+      },
+      {
+        // add field to our result (project)
+        // $meta : some metadata provided by mongoDb
+        score: {
+          $meta: 'textScore'
+        }
+      }
+      //sort them by $meta score
+    )
+      .sort({
+        score: {
+          $meta: 'textScore'
+        }
+      })
+      // limit to 5 top results
+      .limit(5);
+    res.json(ideas);
   } catch (err) {
     console.log(err);
   }

@@ -1,4 +1,5 @@
 const moment = require('moment');
+const typeAhead = require('./typeAhead');
 import '../scss/main.scss';
 
 const navLinks = document.querySelectorAll('.navigation-list__link');
@@ -90,7 +91,7 @@ catAddInput &&
   catAddInput.addEventListener('keydown', async e => {
     // e.preventDefault();
     if (e.keyCode == 13) {
-      const rawResponse = await fetch('/categories/add', {
+      const rawResponse = await fetch('/api/categories/add', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -102,7 +103,10 @@ catAddInput &&
       const categorieNode = `<li class="categories__list-item">
       <div class="categories__list-item-circle" style="background-color:${
         content.color
-      };"></div><a href="#" class="categories__list-item-link">${content.text}</a>
+      };"></div><a href="/categories/${content._id}" class="categories__list-item-link">${
+        content.text
+      }</a>
+      <a href="#" data-id="${content._id}" class="categories__list-item-remove">X</a>
       </li>`;
       e.target.value = '';
       if (!content.error) {
@@ -110,6 +114,8 @@ catAddInput &&
           'beforeend',
           categorieNode
         );
+        // update categories nodes to include the added node
+        categories = document.querySelectorAll('.categories__list-item');
         if ([...e.target.parentElement.classList].includes('categories__add-form--active')) {
           addForm.classList.remove('categories__add-form--active');
         }
@@ -126,7 +132,7 @@ catAddInput &&
   });
 
 // delete an categorie
-const categories = document.querySelectorAll('.categories__list-item');
+let categories = document.querySelectorAll('.categories__list-item');
 categories.forEach(el => {
   el.addEventListener('mouseenter', e => {
     e.target.children[2].style.opacity = 1;
@@ -143,7 +149,7 @@ categoriesDelbtn.forEach(el => {
   el.addEventListener('click', async e => {
     e.preventDefault();
     e.stopPropagation();
-    const req = await fetch('/categories/delete', {
+    const req = await fetch('/api/categories/delete', {
       method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json'
@@ -156,3 +162,7 @@ categoriesDelbtn.forEach(el => {
     console.log(res);
   });
 });
+
+// Search ideas
+const search = document.querySelector('.search');
+typeAhead(search);
