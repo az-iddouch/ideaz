@@ -1,0 +1,28 @@
+<div class="idea">
+  <div class="idea__header">
+
+    <h4 class="idea__title">{{idea.title}}</h4>
+
+    <a href="/edit/{{idea._id}}" class="idea__edit-link">
+      <svg class="idea__edit-icon feather">
+        <use xlink:href="/icons/feather-sprite.svg#edit" />
+      </svg>
+    </a>
+    <a href="#" class="idea__delete-link">
+      <svg class="idea__delete-icon feather">
+        <use xlink:href="/icons/feather-sprite.svg#trash" />
+      </svg>
+    </a>
+
+    <form action="/delete/{{idea._id}}" method="POST" id="delete-idea-form"></form>
+  </div>
+
+  <div class="idea__infos">
+    <div class="idea__date ideas__idea-date">{{idea.date}}</div>
+    <div class="idea__categorie">
+      <div class="idea__categorie-color" style="background-color: {{idea.categorie.color}};"></div>
+      {{idea.categorie.text}}
+    </div>
+  </div>
+  <p class="idea__body">{{idea.body}}</p>
+</div>

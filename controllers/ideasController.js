@@ -64,8 +64,8 @@ exports.showIdeas = async (req, res) => {
 
 // show a single idea
 exports.showIdea = async (req, res) => {
-  const idea = await Idea.findOne({ _id: req.params.id });
-  res.json({ idea });
+  const idea = await Idea.findOne({ _id: req.params.id }).populate('categorie');
+  res.render('ideas/showIdea', { idea });
 };
 
 const confirmOwner = (idea, user) => {

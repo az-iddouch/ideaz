@@ -4,21 +4,11 @@
     <div class="ideas__idea">
       <div class="ideas__idea-date">{{date}}</div>
       <h4 class="ideas__idea-title">
-        <div class="ideas__idea-categorie" style="background-color: {{categorie.color}};;"></div>{{titleToDisply}}
+        <a href="/idea/{{_id}}" class="ideas__idea-link">
+          <div class="ideas__idea-categorie" style="background-color: {{categorie.color}};"></div>{{titleToDisply}}
+        </a>
       </h4>
       <div class="ideas__idea-body">{{preview}}</div>
-      <a href="/edit/{{_id}}" class="ideas__idea-edit-link">
-        <svg class="ideas__idea-edit-icon feather">
-          <use xlink:href="/icons/feather-sprite.svg#edit" />
-        </svg>
-      </a>
-      <a href="#" class="ideas__idea-delete-link">
-        <svg class="ideas__idea-delete-icon feather">
-          <use xlink:href="/icons/feather-sprite.svg#trash" />
-        </svg>
-      </a>
-
-      <form action="/delete/{{_id}}" method="POST" id="delete-idea-form"></form>
     </div>
     {{else}}
     <p class="ideas__no-ideas">No ideas to show !!</p>

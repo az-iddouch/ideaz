@@ -15,6 +15,7 @@
     {{> _navbar}}
     <div class="right-section">
       <div class="wrapper topbar">
+        {{#if user}}
         <div class="search">
           <label for="search" class="search__label">
             <svg class="search__icon feather ">
@@ -24,6 +25,7 @@
           <input type="text" name="search" class="search__input" placeholder="Search" id="search">
           <div class="search__results"></div>
         </div>
+        {{/if}}
         <div class="topbar__auth">
           {{#if user}}
           <div class="topbar__user">

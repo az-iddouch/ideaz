@@ -22,7 +22,7 @@ dismissErrors.forEach(x =>
 );
 
 // delete idea
-const deleteIcons = document.querySelectorAll('.ideas__idea-delete-icon');
+const deleteIcons = document.querySelectorAll('.idea__delete-link');
 deleteIcons.forEach(icon =>
   icon.addEventListener('click', e => {
     e.preventDefault();
