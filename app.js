@@ -45,6 +45,26 @@ const hbs = exphbs.create({
   helpers: {
     checkEquals: function(a, b, options) {
       return a.equals(b) ? options.fn(this) : options.inverse(this);
+    },
+    checkIfSup: function(a, b, options) {
+      if (a > b) {
+        return options.fn(this);
+      } else {
+        return options.inverse(this);
+      }
+    },
+    checkIfInf: function(a, b, options) {
+      if (a < b) {
+        return options.fn(this);
+      } else {
+        return options.inverse(this);
+      }
+    },
+    prevPage: function(page) {
+      return page - 1;
+    },
+    nextPage: function(page) {
+      return page + 1;
     }
   }
 });

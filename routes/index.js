@@ -42,6 +42,7 @@ router.post('/delete/:id', authController.isLoggedIn, ideasController.deleteIdea
 
 // show ideas
 router.get('/ideas', authController.isLoggedIn, ideasController.showIdeas);
+router.get('/ideas/page/:page', authController.isLoggedIn, ideasController.showIdeas);
 
 // show single idea
 router.get('/idea/:id', ideasController.showIdea);

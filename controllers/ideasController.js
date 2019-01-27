@@ -52,10 +52,22 @@ exports.submitIdea = async (req, res) => {
 
 exports.showIdeas = async (req, res) => {
   try {
-    const ideas = await Idea.find({ author: req.user._id })
+    const page = req.params.page || 1;
+    const limit = 12;
+    const skip = page * limit - limit;
+    const ideasPromise = Idea.find({ author: req.user._id })
       .populate('categorie')
+      .skip(skip)
+      .limit(limit)
       .sort({ date: -1 });
-    res.render('ideas/index', { ideas });
+    const countPromise = Idea.count({ author: req.user._id });
+    const [ideas, count] = await Promise.all([ideasPromise, countPromise]);
+    const pages = Math.ceil(count / limit);
+    if (!ideas.length && skip) {
+      res.redirect(`/ideas/page/${pages}`);
+      return;
+    }
+    res.render('ideas/index', { ideas, count, pages, page });
     // res.json(ideas);
   } catch (err) {
     console.log(err);
