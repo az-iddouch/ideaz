@@ -45,7 +45,7 @@ router.get('/ideas', authController.isLoggedIn, ideasController.showIdeas);
 router.get('/ideas/page/:page', authController.isLoggedIn, ideasController.showIdeas);
 
 // show single idea
-router.get('/idea/:id', ideasController.showIdea);
+router.get('/idea/:id', authController.isLoggedIn, ideasController.showIdea);
 
 // User Routes
 router.get('/users/login', usersController.showLogin);
@@ -76,7 +76,12 @@ router.post(
 );
 
 // Categories
-router.get('/categories/:id', authController.isLoggedIn, categoriesController.showIdeasByCategorie);
+router.get('/categories', authController.isLoggedIn, categoriesController.showIdeasByCategorie);
+router.get(
+  '/categories/page/:page',
+  authController.isLoggedIn,
+  categoriesController.showIdeasByCategorie
+);
 
 // Categories Routes | API
 router.post('/api/categories/add', categoriesController.add);

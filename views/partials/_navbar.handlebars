@@ -48,7 +48,7 @@
     <ul class="categories__list">
       {{#each categories}}
       <li class="categories__list-item">
-        <div class="categories__list-item-circle" style="background-color:{{color}};"></div><a href="/categories/{{_id}}"
+        <div class="categories__list-item-circle" style="background-color:{{color}};"></div><a href="/categories/?categorie={{_id}}"
           class="categories__list-item-link">{{text}}</a>
         <a href="#" data-id="{{_id}}" class="categories__list-item-remove">X</a>
       </li>

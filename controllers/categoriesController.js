@@ -24,15 +24,35 @@ exports.delete = async (req, res) => {
 };
 
 exports.showIdeasByCategorie = async (req, res) => {
-  const ideasPromise = Idea.find({ categorie: req.params.id })
-    .populate('categorie')
-    .sort({ date: -1 });
-  const categoriePromise = Categorie.findOne({ _id: req.params.id });
-  const [ideas, categorie] = await Promise.all([ideasPromise, categoriePromise]);
-  if (categorie) {
-    res.render('categories/index', { categorie, ideas });
-  } else {
-    req.flash('error', "Categorie doesn't exist");
-    res.redirect('/ideas');
+  try {
+    const page = req.params.page || 1;
+    const limit = 12;
+    const skip = page * limit - limit;
+    const ideasPromise = Idea.find({ categorie: req.query.categorie })
+      .populate('categorie')
+      .skip(skip)
+      .limit(limit)
+      .sort({ date: -1 });
+
+    const countPromise = Idea.count({ author: req.user._id, categorie: req.query.categorie });
+    const categoriePromise = Categorie.findOne({ _id: req.query.categorie });
+    const [ideas, categorie, count] = await Promise.all([
+      ideasPromise,
+      categoriePromise,
+      countPromise
+    ]);
+    const pages = Math.ceil(count / limit);
+    if (!ideas.length && skip) {
+      res.redirect(`/categories/page/${pages}`);
+      return;
+    }
+    if (categorie) {
+      res.render('categories/index', { categorie, ideas, count, pages, page });
+    } else {
+      req.flash('error', "Categorie doesn't exist");
+      res.redirect('/ideas');
+    }
+  } catch (err) {
+    console.log(err);
   }
 };

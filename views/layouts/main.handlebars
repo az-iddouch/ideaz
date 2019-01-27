@@ -48,7 +48,11 @@
         {{{body}}}
       </div>
       {{#if ideas}}
+      {{#if categorie}}
+      {{> _pagination-categories}}
+      {{else}}
       {{> _pagination}}
+      {{/if}}
       {{/if}}
     </div>
   </div>
