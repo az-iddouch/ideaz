@@ -14,7 +14,7 @@
   <div class="container">
     {{> _navbar}}
     <div class="right-section">
-      <div class="wrapper topbar">
+      <div class="wrapper-topbar topbar">
         {{#if user}}
         <div class="search">
           <label for="search" class="search__label">
@@ -47,6 +47,9 @@
         {{> _alert}}
         {{{body}}}
       </div>
+      {{#if ideas}}
+      {{> _pagination}}
+      {{/if}}
     </div>
   </div>
 </body>
